@@ -4,14 +4,23 @@
   width: 80%;
   padding: 20px;
   border-radius: $radius;
+  color: color("text-primary");
+  margin: 0 5px 20px 5px;
+
+  &:first-child{
+    margin-top: 20px;
+  }
 
   &.USER {
     background-color: color("accent");
     border-bottom-right-radius: 0;
+    align-self: flex-end;
   }
 
   &.CONTACT {
     background-color: color("background-dark");
     border-bottom-left-radius: 0;
+    align-self: flex-start;
+
   }
 }

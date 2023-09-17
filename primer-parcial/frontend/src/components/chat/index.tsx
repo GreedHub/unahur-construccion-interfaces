@@ -2,14 +2,15 @@ import { ReactElement, useState } from "react";
 import "./styles.scss";
 import Message from "../../types/msg";
 import Conversation from "./conversation";
-import ChatContext,{defaultChatValues} from '../../context/chat'
+import ChatContext from '../../context/chat'
 import MessageBox from "./message-box";
 import Perspective, { Perspectives } from "../../types/perspective";
 import PromiseHelper from "../../utils/promise";
+import Header from "./header";
 
 export default function Chat(): ReactElement {
   const [chatLog, setChatLog] = useState<Message[]>([]);
-  const [title, setTitle] = useState<string>('')
+  const [title, setTitle] = useState<string>('Nuevo chat')
   const [isPromptEnabled, setPromptEnabled] = useState<boolean>(true)
 
   const addMessage = (msg:string,perspective:Perspectives)=>{
@@ -51,12 +52,12 @@ export default function Chat(): ReactElement {
   }
 
   return (
-    <div className="chat">
-      <ChatContext.Provider value={{messages:chatLog,title,addMessage: addUserPrompt,changeTitle,isPromptEnabled}}>
-{/*       <Header/> */}
-      <Conversation />
-      <MessageBox/> 
-      </ChatContext.Provider>
-    </div>
+    <ChatContext.Provider value={{messages:chatLog,title,addMessage: addUserPrompt,changeTitle,isPromptEnabled}}>
+      <div className="chat">
+        <Header/> 
+        <Conversation />
+        <MessageBox/> 
+      </div>
+    </ChatContext.Provider>
   );
 }
