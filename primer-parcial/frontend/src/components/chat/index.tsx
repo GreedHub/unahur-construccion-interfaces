@@ -23,10 +23,10 @@ export default function Chat(): ReactElement {
 
   const mockBot = async (msg:string)=>{
     return new Promise((resolve)=>{
-      const timeout = 3000
+      const timeout = 300
 
       setTimeout(() => {
-        resolve('respuesta a'+msg)      
+        resolve('respuesta a '+msg)      
       }, timeout);
   
     })
