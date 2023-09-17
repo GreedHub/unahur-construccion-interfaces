@@ -4,15 +4,17 @@
 
 replicaCount: 1
 
-name: "parc1-ciu-f"
+name: "parc1-ciu-b"
 namespace: "parc1-ciu"
 
-http:
-  exposedPort: "80"
-  host: "parcial1-ciu.lglab.com.ar"
+#ENV VARS
+corsEnabledOrigins: "https://parcial1-ciu.lglab.com.ar"
+api:
+  exposedPort: "5000"
+  host: "api-parcial1-ciu.lglab.com.ar"
 
 image:
-  name: "ghcr.io/greedhub/ciu-1er-parcial-frontend:latest"
+  name: "ghcr.io/greedhub/ciu-1er-parcial-backend:latest"
   pullSecret: github-registry-greedhub
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
@@ -35,6 +37,7 @@ nameOverride: ""
 fullnameOverride: ""
 timestamp: ""
 
+
 serviceAccount:
   # Specifies whether a service account should be created
   create: true
@@ -46,12 +49,10 @@ serviceAccount:
 
 podAnnotations: {}
 
-podSecurityContext:
-  {}
+podSecurityContext: {}
   # fsGroup: 2000
 
-securityContext:
-  {}
+securityContext: {}
   # capabilities:
   #   drop:
   #   - ALL
@@ -61,18 +62,9 @@ securityContext:
 
 service:
   type: ClusterIP
-  port: 80
+  port: 5000
 
-  # We usually recommend not to specify default resources and to leave this as a conscious
-  # choice for the user. This also increases chances charts run on environments with little
-  # resources, such as Minikube. If you do want to specify resources, uncomment the following
-  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
-  # limits:
-  #   cpu: 100m
-  #   memory: 128Mi
-  # requests:
-  #   cpu: 100m
-  #   memory: 128Mi
+
 
 autoscaling:
   enabled: false

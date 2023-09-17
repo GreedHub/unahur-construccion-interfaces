@@ -7,10 +7,10 @@ spec:
   entryPoints:
   - websecure
   routes:
-  - match: Host(`{{ .Values.http.host}}`) && PathPrefix(`/`)
+  - match: Host(`{{ .Values.api.host}}`) && PathPrefix(`/`)
     kind: Rule
     services:
     - name: { { .Values.name } }
-      port: { { .Values.http.exposedPort } }
+      port: { { .Values.api.exposedPort } }
   tls:
     secretName: { { .Values.ingress.tls.SecretName } }
