@@ -1,0 +1,8 @@
+.app {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: auto minmax(auto, 1500px) auto;
+  grid-template-rows: 1fr;
+  grid-template-areas: "blank chat blank2";
+}

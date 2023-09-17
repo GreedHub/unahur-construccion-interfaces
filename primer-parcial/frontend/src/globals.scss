@@ -1,0 +1,16 @@
+@use "sass:map";
+
+$palette: (
+  text-primary: #f2f3f5,
+  text-secondary: #e8e7e9,
+  background: #252331,
+  background-dark: #1b1927,
+  accent: #17b67c,
+  separator: #2a2738,
+);
+
+$radius: 10px;
+
+@function color($colorName) {
+  @return map-get($map: $palette, $key: $colorName);
+}

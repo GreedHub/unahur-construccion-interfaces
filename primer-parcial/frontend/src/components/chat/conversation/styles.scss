@@ -1,0 +1,18 @@
+@import "../../../globals.scss";
+
+.chat__bubble {
+  width: 80%;
+  padding: 20px;
+  border-radius: $radius;
+  color: color("text-primary");
+
+  &.USER {
+    background-color: color("accent");
+    border-bottom-right-radius: 0;
+  }
+
+  &.CONTACT {
+    background-color: color("background-dark");
+    border-bottom-left-radius: 0;
+  }
+}
