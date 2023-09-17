@@ -1,10 +1,10 @@
 apiVersion: policy/v1
 kind: PodDisruptionBudget
 metadata:
-  name: { { .Values.name } }
-  namespace: { { .Values.namespace } }
+  name: {{ .Values.name}}
+  namespace: {{ .Values.namespace}}
 spec:
-  minAvailable: { { .Values.replicaCount } }
+  minAvailable: {{ .Values.replicaCount}}
   selector:
     matchLabels:
-      app: { { .Values.name } }
+      app: {{ .Values.name}}
