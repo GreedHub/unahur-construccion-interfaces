@@ -1,11 +1,11 @@
 import { ReactElement, useState } from "react";
 
-type ListItemProps = {
-    item: any
-    getter: (item:any)=>string
+type ListItemProps<T> = {
+    item: T
+    getter: (item:T)=>string
 }
 
-export default function ListItem(props: ListItemProps):ReactElement{
+export default function ListItem<T>(props: ListItemProps<T>):ReactElement{
     
     const {getter,item} = props
 

@@ -12,7 +12,7 @@ export default function List<T>(props: ListItemProps<T>):ReactElement{
     
     return(
         <ul>
-            {items.map(item=><ListItem item={item} getter={getter}/>)}
+            {items.map((item:T,i:number)=><ListItem item={item} getter={getter} key={i}/>)}
         </ul>
     )
 }
