@@ -35,7 +35,7 @@ jobs:
         with:
           push: true
           tags: ghcr.io/greedhub/ciu-1er-parcial-frontend:latest
-          context: "{{defaultContext}}:primer-parcial:frontend"
+          context: "{{defaultContext}}:primer-parcial/frontend"
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
       - name: Install Helm
@@ -83,7 +83,7 @@ jobs:
         with:
           push: true
           tags: ghcr.io/greedhub/ciu-1er-parcial-backend:latest
-          context: "{{defaultContext}}:primer-parcial:backend"
+          context: "{{defaultContext}}:primer-parcial/backend"
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
       - name: Install Helm
