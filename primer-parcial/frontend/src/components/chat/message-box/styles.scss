@@ -1,7 +1,31 @@
+@import '../../../globals.scss';
+
 .chat__msg-box{
-    height: 100px;
+    height: 70px;
     width: 100%;
     display: flex;
-    justify-items: center;
+    justify-content: center;
     align-items: center;
+
+}
+
+.chat__inputs{
+    background-color: color("background-dark");
+    border: solid 1px color("outline");
+    width: 90%;
+    color: color("text-secondary");
+    border-radius: $radius;
+
+    input[type="text"]{
+        border-radius: $radius;
+        background-color: color("background-dark");
+        border:none;
+        padding:1em;
+        width: 80%;
+        color: color("text-secondary");
+    }
+
+    &:focus,&:focus-visible{
+        outline: none;
+    }
 }

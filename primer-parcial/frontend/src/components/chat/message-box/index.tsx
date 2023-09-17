@@ -9,6 +9,8 @@ export default function MessageBox(): ReactElement {
   const onFromSubmit = (e:FormEvent<HTMLFormElement>)=>{
     e.preventDefault()
 
+    if(!isPromptEnabled) return
+
     const msg:string = e.currentTarget.msg.value
 
     addMessage(msg,Perspective.USER)
@@ -17,7 +19,9 @@ export default function MessageBox(): ReactElement {
   return (
     /* todo: deshabilitar en caso de is... sea falso */
     <form className={`chat__msg-box`} onSubmit={onFromSubmit} >
-      <input type="text" name="msg" id="msg" placeholder="Enter your prompt..." />
+      <div className="chat__inputs">
+        <input type="text" name="msg" id="msg" placeholder="Enter your prompt..." />
+      </div>
     </form>
   );
 }
