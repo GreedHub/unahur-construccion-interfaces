@@ -1,0 +1,12 @@
+POST https://dialogflow.googleapis.com/v2/projects/ciu-parcial/agent/sessions/newSession:detectIntent
+Authorization: Bearer -----BEGIN PRIVATE KEY-----\nMIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQDVwPfszbz+zhIT\nMRedzntXFAwFCr29LRVJEYL6LjEJWYCoz/4WW+3gwQJAcbFf3wEIH13+ChzLNbfQ\nN+KlsHHZXhZm+XAOjCDId48FRnINj3zpqR5zIvB2fRWla89fjUQybdCx/ARioXXj\ngLz0myYLjQvu9jW2DBE501npKuyT/v+tj3Q2J2k+48r81LORluEH3xhhkyF1Ctkp\nkCliihf5bQx9iO6A43hOWKRO27XcpYGVzJ0T0/dv3UwkWTE/BuEzy9jp4/EimS1v\nRbu4OA7vxA5Es0ChvCpZai9LkPz52pg1w+ZPsqgPo9r/2RIJM5pwA5H5jBTZwJEM\nYK/uQBjpAgMBAAECggEAFJBxCa4tbZIjuQbzD7KKuTDrixyibm3E63es0ybYft7G\nevcvqbUEaKgI8Gw/tUp+Der+nu8YIBC182k8+9XCzje4DgYXWr7udHrUHpzNYjKY\nwN4NWORWn/+esoBxve6YTgW0mzr0rQx9i/qZsyqt+VSDfmTfe/kjOx3zO3RuuDoW\nEuefsSu3pLPlkLfvCOalvPjl76vlwA3oF+Xw5OKXfC6fGVmh0fcmSjWtLU5ikI4y\n/S0+EnzS0tyrXPH09aSMtQaHFM9AKalGykN7KtiY0mEXtTLPGptyNGRp21+ifBip\nPPGoSwz0OI/qh+026XBLuX5RDb7ph/3pDq7PE2IYxQKBgQDye3N3MeONYTKgE2ok\nlIpfvNapdQw8VnhvzDJQjsSEfbezmJ6rQr/WgSR8ZnQX/HNF6O8pHn2QdGPOyQ0s\nQqCx//eKB97FKc8zno7y0r8bQJPwLh9Fv6u3TSKMByFkLanFUITqDcUWS7Yml0SY\nfX1io5nzUCIYFqTST8uq2xuUUwKBgQDhq4YPF9wLmQLPCyMG0FFM+L78mq28EnIV\n+YXuJpTg4ZODhzcJE034ZH2hjeDm9omMInDpbtMzy4saI6iEK3pEvTglVSftxab/\no+CrUwcyVdMspxpIDUims39LP9Puj7o1sqjJUCEAgi/shx+gdQwLoZ2cD4f7Q4RL\nhdCDODS2UwKBgQCFGAW0swl3nJYxDvb/xRh+nCQnNzvUEpJgqvAjD3oGTwr55ReS\nYTzy/EeOkJ3AXKzY/pXnN/krxPbTlb9JP/j8OscgWFmKVvyIFMvZtJt41eVdu7Mm\nkaIrJoeD3JYTaoz45M1Puucm6b+9RuI74QVlku75gk50clldprbfvQxSSQKBgQCs\nIArhij5RLkUBLKprsQrB3dy2iThIgf04m5i23ACkQgokwUaOCoZnFiboyXGoWJTz\nKPXcZqZ7FB4mMtp+7TaWJYkkmH4bEq3cwN9Fbc/IacPnhBE8sb0fQTuvZqC8ji3m\ndT3eRtrVK3doPmw2E/C7EmtHtGTwlj/a5tbyrzUtdwKBgQDsgHsRJn87VxN88iaF\nzb8IT4gi4deXRozrU1wgcbUN3k1ZcFEfW8SxM9Q3TX0VUJeDO8rkxV5JXTRV/bQE\nknR0Ox++G/lHv+DUvkuv1CupOqin5XYTa+PgseanNsxf/qh3g9+saYvSXGCcHZBJ\nOolRVPpy+eVvPYFcr6xPzg+PZA==\n-----END PRIVATE KEY-----\n
+Content-Type: application/json
+
+{
+  "query_input": {
+    "text": {
+      "text": "I know french",
+      "language_code": "en-US"
+    }
+  }
+}

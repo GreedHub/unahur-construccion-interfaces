@@ -9,6 +9,7 @@ namespace: "parc1-ciu"
 
 #ENV VARS
 corsEnabledOrigins: "https://parcial1-ciu.lglab.com.ar"
+gcpJsonToken: ""
 api:
   exposedPort: "5000"
   host: "api-parcial1-ciu.lglab.com.ar"

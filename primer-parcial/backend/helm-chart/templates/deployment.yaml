@@ -49,6 +49,8 @@ spec:
         env:
         - name: "APP_NAME"
           value: {{ .Values.name}}
+        - name: "GCP_AUTH_JSON"
+          value: {{ .Values.gcpJsonToken}}
         - name: "CORS_ENABLED_ORIGINS"
           value: {{ .Values.corsEnabledOrigins | quote}}
         - name: "API_PORT"
