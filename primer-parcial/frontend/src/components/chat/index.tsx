@@ -50,29 +50,7 @@ export default function Chat(): ReactElement {
     setPromptEnabled(()=> false)
     getBotResponse(msg)
   }
-
-  const addViewportEvent = ()=>{
-    if (!window) return
-
-    return window.addEventListener('resize', ()=>{
-      const h = window.innerHeight;
-      const w = window.innerWidth;
-      const viewport = document.querySelector("meta[name=viewport]");
-      viewport?.setAttribute("content", `height=${h}px, width=${w}px, initial-scale=1.0`);
-    })
-  }
-
-  const removeViewportEvent = (ev:any)=>{
-    if (!window) return
-
-    window.removeEventListener('resize', ev)
-  }
-
-  useLayoutEffect(()=>{
-    const ev = addViewportEvent()
-    return removeViewportEvent(ev)
-  },[])
-
+  
   return (
     <ChatContext.Provider value={{messages:chatLog,title,addMessage: addUserPrompt,changeTitle,isPromptEnabled}}>
       <div className="chat">
