@@ -5,27 +5,52 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
     grid-area: messageBox;
 }
 
 .chat__inputs{
     background-color: color("background-dark");
-    border: solid 1px color("outline");
+    border: solid 2px color("outline");
     width: 90%;
+    height: 50px;
     color: color("text-secondary");
     border-radius: $radius;
+    display: flex;
+    align-items: stretch;
+
 
     input[type="text"]{
         border-radius: $radius;
         background-color: color("background-dark");
         border:none;
         padding:1em;
-        width: 80%;
+        width: 100%;
         color: color("text-secondary");
+    }
+
+    .chat__submit{
+        background-color: color("background-dark");
+        border: none;
+        color: color("accent");
+        width: 80px;
+        position: relative;
+        height: 100%;
+        border-radius: 0 $radius $radius 0;
+
+        &::after{
+            position: absolute;
+            content:'';
+            background-color: color("separator");
+            width: 2px;
+            height: 40px;
+            left: 0;
+            top:5px;
+            bottom: 5px;
+        }
     }
 
     &:focus,&:focus-visible{
         outline: none;
     }
 }
+

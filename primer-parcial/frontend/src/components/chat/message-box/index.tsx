@@ -2,7 +2,7 @@ import {  FormEvent, ReactElement, useContext } from "react";
 import "./styles.scss";
 import ChatContext from '../../../context/chat'
 import Perspective from "../../../types/perspective"
-import { SendOutlined } from "@mui/icons-material";
+import { Send } from "@mui/icons-material";
 
 export default function MessageBox(): ReactElement {
   const { addMessage, isPromptEnabled } = useContext(ChatContext);
@@ -22,7 +22,7 @@ export default function MessageBox(): ReactElement {
     <form className={`chat__msg-box`} onSubmit={onFromSubmit} >
       <div className="chat__inputs">
         <input type="text" name="msg" id="msg" placeholder="Enter your prompt..." />
-        <input type="submit"><SendOutlined/></input>
+        <button className="chat__submit"><Send/></button>
       </div>
     </form>
   );
