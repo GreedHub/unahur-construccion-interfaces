@@ -1,10 +1,8 @@
 @import "../../../globals.scss";
 
 .chat__conversation{
-  height: 100%;
-  max-height: 80vh;
-  width: 100%;
   display: flex;
   flex-direction: column;
   overflow-y: scroll;
+  grid-area: conversation;
 }
