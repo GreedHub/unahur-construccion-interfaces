@@ -1,4 +1,4 @@
-import { ReactElement, useLayoutEffect, useState } from "react";
+import { ReactElement, useState } from "react";
 import "./styles.scss";
 import Message from "../../types/msg";
 import Conversation from "./conversation";
@@ -50,7 +50,7 @@ export default function Chat(): ReactElement {
     setPromptEnabled(()=> false)
     getBotResponse(msg)
   }
-  
+
   return (
     <ChatContext.Provider value={{messages:chatLog,title,addMessage: addUserPrompt,changeTitle,isPromptEnabled}}>
       <div className="chat">
