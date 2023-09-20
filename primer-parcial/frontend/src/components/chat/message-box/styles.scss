@@ -12,7 +12,7 @@
 .chat__inputs{
     background-color: color("background-dark");
     border: solid 2px color("outline");
-    width: 90%;
+    width: 100%;
     height: 50px;
     color: color("text-secondary");
     border-radius: $radius;
@@ -55,4 +55,3 @@
         outline: none;
     }
 }
-
