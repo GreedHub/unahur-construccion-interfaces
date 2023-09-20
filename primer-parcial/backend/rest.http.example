@@ -1,0 +1,22 @@
+### GET Health
+GET http://localhost:5000/health
+
+### GET sessions
+GET http://localhost:5000/dialogflow/session/
+
+
+### Create session
+POST http://localhost:5000/dialogflow/session/
+Content-Type: application/json
+
+{
+    "lang": "en-US"
+}
+
+### Send prompt
+POST http://localhost:5000/dialogflow/634f26e9-39ef-42dc-b66a-645784d23959/prompt
+Content-Type: application/json
+
+{
+    "prompt": "Hello"
+}
