@@ -3,12 +3,19 @@
 header{
     height: 60px;
     width: 100%;
+    max-width: 1500px;
+    margin-left: auto;
+    margin-right: auto;
     border-bottom: solid 2px color("separator");
     color: color("text-secondary");
     display: flex;
     align-items: center;
     justify-content: center;
     grid-area: header;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
 
     h3{
         font-weight: 400;
