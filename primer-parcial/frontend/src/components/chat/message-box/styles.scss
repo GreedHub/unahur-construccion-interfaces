@@ -5,6 +5,7 @@
     width: 100%;
     display: flex;
     justify-content: center;
+    align-items: center;
     grid-area: messageBox;
 }
 
@@ -23,6 +24,7 @@
         border-radius: $radius;
         background-color: color("background-dark");
         border:none;
+        outline: none;
         padding:1em;
         width: 100%;
         color: color("text-secondary");

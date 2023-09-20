@@ -14,6 +14,8 @@ export default function MessageBox(): ReactElement {
 
     const msg:string = e.currentTarget.msg.value
 
+    e.currentTarget.msg.value = ''
+
     addMessage(msg,Perspective.USER)
   }
 
