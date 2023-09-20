@@ -10,24 +10,20 @@ body {
   background-color: color("background");
 }
 
-/* width */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 5px;
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
   background: color("background-dark");
   border-radius: $radius;
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
   background: color("scroll");
   border-radius: $radius;
 }
 
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: lighten(color("scroll"),3);
 }
