@@ -7,7 +7,7 @@ on:
 
 jobs:
   frontend:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     permissions:
       packages: write
     steps:
@@ -38,24 +38,9 @@ jobs:
           context: "{{defaultContext}}:primer-parcial/frontend"
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
-      - name: Install Helm
-        uses: azure/setup-helm@v3
-        id: install
-      - name: "Apply Kubeconfig"
-        uses: azure/k8s-set-context@v2
-        with:
-          method: kubeconfig
-          kubeconfig: ${{ secrets.KUBECONFIG }}
-      - name: "Deploy with Helm"
-        run: |
-          cd ./primer-parcial/frontend/helm-chart && \
-          export TIMESTAMP=$(date +%s) && \
-          helm upgrade -i --force -n default 1er-p-frontend -f values.yaml \
-          --set-string timestamp=$TIMESTAMP \
-          ./
 
   backend:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     permissions:
       packages: write
     steps:
@@ -86,6 +71,12 @@ jobs:
           context: "{{defaultContext}}:primer-parcial/backend"
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
+
+  deploy_backend:
+    runs-on: self-hosted
+    permissions:
+      packages: write
+    steps:
       - name: Install Helm
         uses: azure/setup-helm@v3
         id: install
@@ -101,4 +92,26 @@ jobs:
           helm upgrade -i --force -n default 1er-p-backend -f values.yaml \
           --set-string timestamp=$TIMESTAMP \
           --set-string gcpJsonToken=${{ secrets.GCP_AUTH_JSON }} \
+          ./
+
+
+  deploy_frontend:
+    runs-on: self-hosted
+    permissions:
+      packages: write
+    steps:
+      - name: Install Helm
+        uses: azure/setup-helm@v3
+        id: install
+      - name: "Apply Kubeconfig"
+        uses: azure/k8s-set-context@v2
+        with:
+          method: kubeconfig
+          kubeconfig: ${{ secrets.KUBECONFIG }}
+      - name: "Deploy with Helm"
+        run: |
+          cd ./primer-parcial/frontend/helm-chart && \
+          export TIMESTAMP=$(date +%s) && \
+          helm upgrade -i --force -n default 1er-p-frontend -f values.yaml \
+          --set-string timestamp=$TIMESTAMP \
           ./
