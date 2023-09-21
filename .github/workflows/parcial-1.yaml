@@ -87,12 +87,7 @@ jobs:
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: create-json
-        id: create-json
-        uses: jsdaniell/create-json@v1.2.2
-        with:
-          name: "gcp.json"
-          json: ${{ secrets.GPT_TOKEN }}
-          dir: 'primer-parcial/backend/credentials'
+        run: echo ${{ secrets.GPT_TOKEN }} > ./primer-parcial/backend/credentials
       - name: Build and push
         id: docker_build
         uses: docker/build-push-action@v3

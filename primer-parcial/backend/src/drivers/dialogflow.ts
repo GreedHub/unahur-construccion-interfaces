@@ -1,7 +1,6 @@
 //import * as DialogFlow from  'dialogflow'
 const DialogFlow = require("dialogflow");
 const { SessionsClient } = DialogFlow;
-import * as uuid from "uuid";
 import PromiseHelper from "../utils/promise";
 import { Lang } from "../types/lang";
 
@@ -9,12 +8,14 @@ export type SessionMapData = {
   title: string;
   sessionPath: any;
   lang: Lang;
+  model: string;
 };
 
 export type SessionData = {
   title: string;
   id: string;
   lang: Lang;
+  model: string;
 };
 
 export type SessionMap = Record<string, SessionMapData>;
@@ -24,6 +25,7 @@ export default class DialogflowDriver {
   private sessions: SessionMap;
   private projectId: string;
   private static instance: DialogflowDriver;
+  private static modelName = "DIALOGFLOW";
 
   private constructor(projectId: string) {
     this.client = new SessionsClient({
@@ -41,23 +43,39 @@ export default class DialogflowDriver {
     return DialogflowDriver.instance;
   }
 
-  newSession(lang: Lang = "es-AR"): string {
-    const sessionId = uuid.v4();
+  newSession(sessionId: string, lang: Lang = "es-AR"): string {
     const sessionPath = this.client.sessionPath(this.projectId, sessionId);
-    this.sessions[sessionId] = { sessionPath, title: "new_session", lang };
+    this.sessions[sessionId] = {
+      sessionPath,
+      title: "new_session",
+      lang,
+      model: DialogflowDriver.modelName,
+    };
     return sessionId;
   }
 
   getAllSessions(): SessionData[] {
     return Object.keys(this.sessions).map((id) => {
-      const { title, lang } = this.sessions[id];
+      const { title, lang, model } = this.sessions[id];
 
       return {
         id,
         title,
+        model,
         lang,
       };
     });
+  }
+
+  getSessionById(sessionId: string): SessionData {
+    const { title, lang, model } = this.sessions[sessionId];
+
+    return {
+      id: sessionId,
+      title,
+      model,
+      lang,
+    };
   }
 
   async answerPrompt(sessionId: string, prompt: string): Promise<string> {

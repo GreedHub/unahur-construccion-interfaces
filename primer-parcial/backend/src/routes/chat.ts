@@ -13,7 +13,9 @@ dialogflowRouter
   .post(async (req, res) => {
     const { lang, model } = req.body;
 
-    const sessionId = createSession(model, lang);
+    const [sessionId, err] = await PromiseHelper(createSession(model, lang));
+
+    if (err) return res.status(500).send(err);
 
     res.status(201).json({ data: { sessionId } });
   })
