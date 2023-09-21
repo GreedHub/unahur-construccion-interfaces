@@ -7,6 +7,7 @@ import MessageBox from "./message-box";
 import Perspective, { Perspectives } from "../../types/perspective";
 import PromiseHelper from "../../utils/promise";
 import Header from "./header";
+import { answerPrompt } from "../../services/chat";
 
 export default function Chat(): ReactElement {
   const [chatLog, setChatLog] = useState<Message[]>([]);
@@ -21,27 +22,19 @@ export default function Chat(): ReactElement {
     setTitle(() => newTitle)
   } 
 
-  const mockBot = async (msg:string)=>{
-    return new Promise((resolve)=>{
-      const timeout = 300
-
-      setTimeout(() => {
-        resolve('respuesta a '+msg)      
-      }, timeout);
-  
-    })
-  }
-
   const getBotResponse = async (msg:string) =>{
-    const [ response, err ] = await PromiseHelper(mockBot(msg))
+    const [ response, err ] = await PromiseHelper(answerPrompt('fixme',msg))
 
     if(err) {
       setPromptEnabled(()=> true)
-      throw new Error(err) ;
+      console.error(err) ;
       /* fixme: enviar menesaje al usuario y retry */
+      addMessage('Ocurrio un error al procesar tu mensaje, por favor intenta de nuevo', Perspective.CONTACT)
+      setPromptEnabled(()=> true)
+      return
     }
 
-    addMessage(response, Perspective.CONTACT)
+    addMessage(response.data.response, Perspective.CONTACT)
     setPromptEnabled(()=> true)
   }
 
