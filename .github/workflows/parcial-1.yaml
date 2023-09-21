@@ -69,17 +69,15 @@ jobs:
       packages: write
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
-      - name: create-gcp-json
-        run: echo ${{ secrets.GPT_TOKEN }} > ./primer-parcial/backend/credentials/gcp.json
+        uses: actions/checkout@v4
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v2
+        uses: docker/setup-qemu-action@v3
       - name: setup docker context for buildx
         id: buildx-context
         run: |
           docker context create builders-b
       - name: setup docker buildx
-        uses: docker/setup-buildx-action@v2
+        uses: docker/setup-buildx-action@v3
         with:
           endpoint: builders-b
       - name: Login to GitHub Packages Docker Registry
@@ -90,11 +88,13 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Build and push
         id: docker_build
-        uses: docker/build-push-action@v3
+        uses: docker/build-push-action@v5
         with:
           push: true
           tags: ghcr.io/greedhub/ciu-1er-parcial-backend:latest
           context: "{{defaultContext}}:primer-parcial/backend"
+          secrets: |
+            "GCP_TOKEN=${{ secrets.GCP_TOKEN }}"
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
 
