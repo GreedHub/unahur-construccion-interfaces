@@ -3,8 +3,8 @@ WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm ci
 COPY . ./
-RUN cat $gcp_token && \
-    echo $gcp_token > ./credentials/gcp.json && \
+RUN echo $gcp_token > ./credentials/gcp.json && \
+    cat ./credentials/gcp.json && \
     npm run build
 
 FROM node:18
