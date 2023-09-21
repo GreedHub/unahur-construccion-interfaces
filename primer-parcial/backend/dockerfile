@@ -4,9 +4,6 @@ COPY package.json package-lock.json ./
 RUN npm ci
 COPY . ./
 RUN echo $gcp_token > ./credentials/gcp.json && \
-    cd credentials && \ 
-    ls -la && \
-    cd .. && \
     npm run build
 
 FROM node:18
