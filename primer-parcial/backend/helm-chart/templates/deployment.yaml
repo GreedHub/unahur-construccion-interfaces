@@ -51,6 +51,8 @@ spec:
           value: {{ .Values.name}}
         - name: "GCP_AUTH_JSON"
           value: {{ .Values.gcpJsonToken}}
+        - name: "GPT_TOKEN"
+          value: {{ .Values.gptToken}}
         - name: "CORS_ENABLED_ORIGINS"
           value: {{ .Values.corsEnabledOrigins | quote}}
         - name: "API_PORT"

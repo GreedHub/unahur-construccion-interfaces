@@ -17,6 +17,7 @@
     color: color("text-secondary");
     border-radius: $radius;
     display: flex;
+    justify-content: stretch;
     align-items: stretch;
 
 
@@ -26,29 +27,20 @@
         border:none;
         outline: none;
         padding:1em;
-        width: 100%;
+        width: auto;
         color: color("text-secondary");
     }
 
     .chat__submit{
-        background-color: color("background-dark");
+        color: color("text-primary");
         border: none;
-        color: color("accent");
-        width: 80px;
+        background-color: color("accent");
+        width: 50px;
         position: relative;
         height: 100%;
-        border-radius: 0 $radius $radius 0;
+        border-radius:  $radius ;
 
-        &::after{
-            position: absolute;
-            content:'';
-            background-color: color("separator");
-            width: 2px;
-            height: 40px;
-            left: 0;
-            top:5px;
-            bottom: 5px;
-        }
+
     }
 
     &:focus,&:focus-visible{

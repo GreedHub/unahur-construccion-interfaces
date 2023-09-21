@@ -95,6 +95,8 @@ jobs:
           context: "{{defaultContext}}:primer-parcial/backend"
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
+      - name: Install credentials
+        run: echo ${{ secrets.GPT_TOKEN }} > ./credentials/gcp.json
 
   deploy_backend:
     runs-on: self-hosted
@@ -119,4 +121,5 @@ jobs:
           helm upgrade -i --force -n default 1er-p-backend -f values.yaml \
           --set-string timestamp=$TIMESTAMP \
           --set-string gcpJsonToken=${{ secrets.GCP_AUTH_JSON }} \
+          --set-string gptToken=${{ secrets.GPT_TOKEN }} \
           ./
