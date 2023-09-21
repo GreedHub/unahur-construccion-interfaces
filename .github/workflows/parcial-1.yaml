@@ -120,6 +120,5 @@ jobs:
           export TIMESTAMP=$(date +%s) && \
           helm upgrade -i --force -n default 1er-p-backend -f values.yaml \
           --set-string timestamp=$TIMESTAMP \
-          --set-string gcpJsonToken=${{ secrets.GCP_AUTH_JSON }} \
           --set-string gptToken=${{ secrets.GPT_TOKEN }} \
           ./
