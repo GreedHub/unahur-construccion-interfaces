@@ -96,7 +96,7 @@ jobs:
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
       - name: Install credentials
-        run: echo ${{ secrets.GPT_TOKEN }} > ./credentials/gcp.json
+        run: echo ${{ secrets.GPT_TOKEN }} > ./primer-parcial/backend/credentials/gcp.json
 
   deploy_backend:
     runs-on: self-hosted
