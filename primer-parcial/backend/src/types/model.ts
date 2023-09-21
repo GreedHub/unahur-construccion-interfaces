@@ -1,6 +1,7 @@
 export const Models = {
   GPT: "GPT",
   DIALOGFLOW: "DIALOGFLOW",
+  MOCK: "MOCK",
 } as const;
 
 export const ModelKeys = Object.keys(Models);

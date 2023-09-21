@@ -1,41 +1,38 @@
-const DialogFlow = require("dialogflow");
-const { SessionsClient } = DialogFlow;
+require('dotenv').config()
 import PromiseHelper from "../utils/promise";
 import { Lang } from "../types/lang";
 import Driver, { SessionData, SessionMap } from ".";
 import Models from "../types/model";
+import axios, { AxiosRequestConfig } from "axios";
 
-export default class DialogflowDriver extends Driver {
+export default class GPTDriver extends Driver {
   protected client: any;
   protected sessions: SessionMap;
   protected projectId: string;
-  protected static instance: DialogflowDriver;
-  protected static modelName = Models.DIALOGFLOW;
+  protected static instance: GPTDriver;
+  protected static modelName = Models.GPT;
+  protected OPENAI_API_KEY = process.env.GPT_TOKEN_AUTH
 
   protected constructor(projectId: string) {
     super(projectId)
-    this.client = new SessionsClient({
-      keyFilename: "./credentials/gcp.json",
-    });
-
     this.projectId = projectId;
     this.sessions = {};
+    this.client = axios
+    console.log({token_gpt:process.env.GPT_TOKEN_AUTH})
   }
 
   public static getInstance(projectId: string) {
-    if (!DialogflowDriver.instance)
-      DialogflowDriver.instance = new DialogflowDriver(projectId);
+    if (!GPTDriver.instance)
+      GPTDriver.instance = new GPTDriver(projectId);
 
-    return DialogflowDriver.instance;
+    return GPTDriver.instance;
   }
 
   newSession(sessionId: string, lang: Lang = "es-AR"): string {
-    const sessionPath = this.client.sessionPath(this.projectId, sessionId);
     this.sessions[sessionId] = {
-      sessionPath,
       title: "new_session",
       lang,
-      model: DialogflowDriver.modelName,
+      model: GPTDriver.modelName,
     };
     return sessionId;
   }
@@ -69,33 +66,35 @@ export default class DialogflowDriver extends Driver {
   }
 
   async answerPrompt(sessionId: string, prompt: string): Promise<string> {
-    const { sessionPath, lang } = this.sessions[sessionId];
-
-    const request = {
-      session: sessionPath,
-      queryInput: {
-        text: {
-          text: prompt,
-          languageCode: lang,
-        },
+    const req:AxiosRequestConfig = {
+      method: 'POST',
+      url: `https://api.openai.com/v1/chat/completions`,
+      headers:{
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${this.OPENAI_API_KEY}`
       },
-    };
+      data:{
+        "model": "gpt-3.5-turbo",
+        "messages": [{"role": "user", "content": prompt}],
+      }
+    } 
 
-    const [responses, err] = await PromiseHelper(
-      this.client.detectIntent(request)
-    );
+    const [response, err] = await PromiseHelper(axios(req));
 
     if (err) {
-      const parsedError = `Cannot get response from sessionId: ${sessionId}. Reason ${err}`;
+      const parsedError = `Cannot get response from sessionId: ${sessionId}. Reason: ${err}`;
       console.error(parsedError);
       return Promise.reject(parsedError);
     }
 
-    const result = responses[0].queryResult;
+    const result = response?.choices[0];
 
-    console.log(`Query: ${result.queryText}`);
-    console.log(`Response: ${result.fulfillmentText}`);
+    if(!result){
+      const parsedError = `Cannot get response from sessionId: ${sessionId}. Reason: no response choices`;
+      console.error(parsedError);
+      return Promise.reject(parsedError);
+    }
 
-    return result.fulfillmentText;
+    return result.message.content;
   }
 }

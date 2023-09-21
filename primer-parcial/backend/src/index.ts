@@ -4,6 +4,7 @@ import helmet from "helmet";
 import routes from "./routes";
 import cors from "cors";
 import { readFile } from "fs";
+require('dotenv').config()
 
 readFile("./credentials/gcp.json", "utf8", (err, data) => {
   if (err) throw err;
