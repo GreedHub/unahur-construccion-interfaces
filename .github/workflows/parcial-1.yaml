@@ -86,6 +86,8 @@ jobs:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Install credentials
+        run: echo ${{ secrets.GPT_TOKEN }} > ./primer-parcial/backend/credentials/gcp.json
       - name: Build and push
         id: docker_build
         uses: docker/build-push-action@v3
@@ -95,8 +97,7 @@ jobs:
           context: "{{defaultContext}}:primer-parcial/backend"
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
-      - name: Install credentials
-        run: echo ${{ secrets.GPT_TOKEN }} > ./primer-parcial/backend/credentials/gcp.json
+
 
   deploy_backend:
     runs-on: self-hosted
