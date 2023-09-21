@@ -3,9 +3,12 @@ import bodyParser from "body-parser";
 import helmet from "helmet";
 import routes from "./routes";
 import cors from "cors";
+import { readFile } from "fs";
 
-const gcp = require("./credentials/gcp.json");
-console.log({ gcp });
+readFile("./credentials/gcp.json", "utf8", (err, data) => {
+  if (err) throw err;
+  console.log(data);
+});
 
 const corsEnabledDomains = process.env.CORS_ENABLED_ORIGINS?.split(",") ?? [
   "http://127.0.0.1:5173",
