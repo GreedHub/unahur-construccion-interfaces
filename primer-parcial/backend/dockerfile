@@ -3,8 +3,7 @@ WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm ci
 COPY . ./
-RUN echo ${{ secrets.GPT_TOKEN }} > ./credentials/gcp.json && \
-    ls -la && \
+RUN ls -la && \
     cat ./credentials/gcp.json && \
     npm run build
 
