@@ -60,7 +60,7 @@ export async function answerPrompt(
     case Models.GPT:
       return GPT.answerPrompt(sessionId, prompt);
     case Models.MOCK:
-      return GPT.answerPrompt(sessionId, prompt);
+      return Promise.resolve(`Respuesta a: ${prompt}`);
     default:
       Promise.reject(invalidModelException(model));
   }
