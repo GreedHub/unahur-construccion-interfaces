@@ -3,7 +3,9 @@ WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm ci
 COPY . ./
-RUN ls -la && \
+RUN mkdir ./credentials &&\
+    echo ${{ secrets.GPT_TOKEN }} > ./primer-parcial/backend/credentials/gcp.json && \
+    ls -la && \
     cat ./credentials/gcp.json && \
     npm run build
 
@@ -17,5 +19,6 @@ ENV API_PORT=${API_PORT} \
 WORKDIR /app
 COPY --from=build /app/build /app/package.json /app/package-lock.json ./
 COPY --from=build /app/node_modules ./node_modules
+COPY --from=build /app/credentials ./credentials
 EXPOSE  ${API_PORT}
 CMD ["npm","run","prod"]

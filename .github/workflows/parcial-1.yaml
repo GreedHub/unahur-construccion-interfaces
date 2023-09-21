@@ -86,8 +86,6 @@ jobs:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      - name: Install credentials
-        run: echo ${{ secrets.GPT_TOKEN }} > ./primer-parcial/backend/credentials/gcp.json
       - name: Build and push
         id: docker_build
         uses: docker/build-push-action@v3
