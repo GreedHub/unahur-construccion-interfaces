@@ -4,7 +4,7 @@ import helmet from "helmet";
 import routes from "./routes";
 import cors from "cors";
 
-const gcp = require("../credentials/gcp.json");
+const gcp = require("./credentials/gcp.json");
 console.log({ gcp });
 
 const corsEnabledDomains = process.env.CORS_ENABLED_ORIGINS?.split(",") ?? [

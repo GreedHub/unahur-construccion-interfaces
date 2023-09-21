@@ -4,3 +4,4 @@ rest.http
 certs
 build
 credentials/*.json
+src/credentials
