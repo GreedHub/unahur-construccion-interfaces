@@ -6,7 +6,6 @@ COPY . ./
 RUN echo $gcp_token > ./credentials/gcp.json && \
     cd credentials && \ 
     ls -la && \
-    cat gcp.json && \
     cd .. && \
     npm run build
 
