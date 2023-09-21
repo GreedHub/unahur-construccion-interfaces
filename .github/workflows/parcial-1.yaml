@@ -89,9 +89,10 @@ jobs:
       - name: create-json
         run: echo ${{ secrets.GPT_TOKEN }} > ./primer-parcial/backend/credentials/gcp.json
       - name: check-file
-        run: cd ./primer-parcial/backend/credentials && \
-              ls -la && \ 
-              cat gcp.json
+        run: |
+          cd ./primer-parcial/backend/credentials && \
+          ls -la && \ 
+          cat gcp.json
       - name: Build and push
         id: docker_build
         uses: docker/build-push-action@v3
