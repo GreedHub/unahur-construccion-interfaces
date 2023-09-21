@@ -8,7 +8,7 @@ name: "parc1-ciu-b"
 namespace: "parc1-ciu"
 
 #ENV VARS
-corsEnabledOrigins: "https://parcial1-ciu.lglab.com.ar,https://main--incredible-pegasus-cfa682.netlify.app/,https://650c7c038066d819dc91d3d3--incredible-pegasus-cfa682.netlify.app/"
+corsEnabledOrigins: "https://parcial1-ciu.lglab.com.ar,https://main--incredible-pegasus-cfa682.netlify.app,https://650c7c038066d819dc91d3d3--incredible-pegasus-cfa682.netlify.app"
 gptToken: ""
 api:
   exposedPort: "5000"
