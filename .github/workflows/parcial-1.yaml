@@ -94,7 +94,7 @@ jobs:
           tags: ghcr.io/greedhub/ciu-1er-parcial-backend:latest
           context: "{{defaultContext}}:primer-parcial/backend"
           secrets: |
-            "gcp_token=${{ secrets.GCP_TOKEN }}"
+            "gcp_token=${{ secrets.GCP_AUTH_JSON }}"
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
 
