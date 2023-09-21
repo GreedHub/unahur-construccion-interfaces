@@ -51,7 +51,7 @@ export async function answerPrompt(
     case Models.DIALOGFLOW:
       return DialogFlow.answerPrompt(sessionId, prompt);
     case Models.GPT:
-      return sessionId;
+      return Promise.resolve(`Response to ${prompt}`);
     default:
       Promise.reject(invalidModelException(model));
   }

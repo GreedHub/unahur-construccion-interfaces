@@ -19,7 +19,7 @@ dialogflowRouter
 
     res.status(201).json({ data: { sessionId } });
   })
-  .get(async (req, res) => {
+  .get(async (_, res) => {
     const sessions = getAllSessions();
 
     res.status(200).json({ data: { sessions } });

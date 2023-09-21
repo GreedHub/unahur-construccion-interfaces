@@ -67,8 +67,12 @@ export default class DialogflowDriver {
     });
   }
 
-  getSessionById(sessionId: string): SessionData {
-    const { title, lang, model } = this.sessions[sessionId];
+  getSessionById(sessionId: string): SessionData | null {
+    const session = this.sessions[sessionId];
+
+    if (!session) return null;
+
+    const { title, lang, model } = session;
 
     return {
       id: sessionId,

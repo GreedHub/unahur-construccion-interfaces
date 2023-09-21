@@ -2,19 +2,20 @@
 GET http://localhost:5000/health
 
 ### GET sessions
-GET http://localhost:5000/dialogflow/session/
+GET http://localhost:5000/chat/session/
 
 
 ### Create session
-POST http://localhost:5000/dialogflow/session/
+POST http://localhost:5000/chat/session/
 Content-Type: application/json
 
 {
-    "lang": "en-US"
+    "lang": "en-US",
+    "model": "DIALOGFLOW"
 }
 
 ### Send prompt
-POST http://localhost:5000/dialogflow/634f26e9-39ef-42dc-b66a-645784d23959/prompt
+POST http://localhost:5000/chat/475c48a3-aa1a-4028-8c34-a94f5784abc9/prompt
 Content-Type: application/json
 
 {
