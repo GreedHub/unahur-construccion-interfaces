@@ -10,6 +10,8 @@ readFile("./credentials/gcp.json", "utf8", (err, data) => {
   console.log(data);
 });
 
+console.log({ json: process.env.GCP_AUTH_JSON });
+
 const corsEnabledDomains = process.env.CORS_ENABLED_ORIGINS?.split(",") ?? [
   "http://127.0.0.1:5173",
   "http://localhost:5173",
