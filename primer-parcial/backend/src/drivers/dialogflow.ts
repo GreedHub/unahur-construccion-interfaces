@@ -102,7 +102,7 @@ export default class DialogflowDriver {
     if (err) {
       const parsedError = `Cannot get response from sessionId: ${sessionId}. Reason ${err}`;
       console.error(parsedError);
-      throw new Error(parsedError);
+      Promise.reject(parsedError);
     }
 
     const result = responses[0].queryResult;
