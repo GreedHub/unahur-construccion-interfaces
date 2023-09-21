@@ -3,6 +3,8 @@
 ## Introducción
 En este proyecto se creó un cliente de chat que se comunica con el backend para acceder a distintas API de chatbot, siendo la principal DialogFlow, pero permitiendo la expansión a otros modelos como `OpenAI`.
 
+La idea original contemplaba la posibilidad de mantener varios hilos de conversacion con distintos bots donde cada uno implemente un modelo de AI seleccionado por el usuario y de esta forma tener una unica plataforma que permita la comunicación con varias AI de distintas empresas, pero esto si bien fue implementado en el backend, por tema de tiempos no pudo ser implementado en el Frontend.
+
 Una versión de produccion puede encontrarse en:
 - [Netlify](https://main--incredible-pegasus-cfa682.netlify.app/)
 - [Self-Hosted](https://parcial1-ciu.lglab.com.ar/)
