@@ -4,21 +4,27 @@ import helmet from "helmet";
 import routes from "./routes";
 import cors from "cors";
 import { readFile } from "fs";
-require('dotenv').config()
+require("dotenv").config();
 
 readFile("./credentials/gcp.json", "utf8", (err, data) => {
   if (err) throw err;
   console.log(data);
 });
 
-console.log({ json: process.env.GCP_AUTH_JSON });
+console.log({});
 
 const corsEnabledDomains = process.env.CORS_ENABLED_ORIGINS?.split(",") ?? [
   "http://127.0.0.1:5173",
   "http://localhost:5173",
 ];
 
-console.log({ corsEnabledDomains });
+console.log({
+  corsEnabledDomains,
+  envs: {
+    gcp_json: process.env.GCP_AUTH_JSON,
+    gpt_token: process.env.GPT_TOKEN,
+  },
+});
 
 const PORT = 5000;
 

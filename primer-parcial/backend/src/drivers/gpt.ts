@@ -1,4 +1,4 @@
-require('dotenv').config()
+require("dotenv").config();
 import PromiseHelper from "../utils/promise";
 import { Lang } from "../types/lang";
 import Driver, { SessionData, SessionMap } from ".";
@@ -11,19 +11,17 @@ export default class GPTDriver extends Driver {
   protected projectId: string;
   protected static instance: GPTDriver;
   protected static modelName = Models.GPT;
-  protected OPENAI_API_KEY = process.env.GPT_TOKEN_AUTH
+  protected OPENAI_API_KEY = process.env.GPT_TOKEN;
 
   protected constructor(projectId: string) {
-    super(projectId)
+    super(projectId);
     this.projectId = projectId;
     this.sessions = {};
-    this.client = axios
-    console.log({token_gpt:process.env.GPT_TOKEN_AUTH})
+    this.client = axios;
   }
 
   public static getInstance(projectId: string) {
-    if (!GPTDriver.instance)
-      GPTDriver.instance = new GPTDriver(projectId);
+    if (!GPTDriver.instance) GPTDriver.instance = new GPTDriver(projectId);
 
     return GPTDriver.instance;
   }
@@ -66,18 +64,18 @@ export default class GPTDriver extends Driver {
   }
 
   async answerPrompt(sessionId: string, prompt: string): Promise<string> {
-    const req:AxiosRequestConfig = {
-      method: 'POST',
+    const req: AxiosRequestConfig = {
+      method: "POST",
       url: `https://api.openai.com/v1/chat/completions`,
-      headers:{
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${this.OPENAI_API_KEY}`
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${this.OPENAI_API_KEY}`,
       },
-      data:{
-        "model": "gpt-3.5-turbo",
-        "messages": [{"role": "user", "content": prompt}],
-      }
-    } 
+      data: {
+        model: "gpt-3.5-turbo",
+        messages: [{ role: "user", content: prompt }],
+      },
+    };
 
     const [response, err] = await PromiseHelper(axios(req));
 
@@ -89,7 +87,7 @@ export default class GPTDriver extends Driver {
 
     const result = response?.choices[0];
 
-    if(!result){
+    if (!result) {
       const parsedError = `Cannot get response from sessionId: ${sessionId}. Reason: no response choices`;
       console.error(parsedError);
       return Promise.reject(parsedError);
