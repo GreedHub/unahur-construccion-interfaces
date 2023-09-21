@@ -1,14 +1,10 @@
 import { Router } from "express";
 import healthRouter from "./health";
-import gcpAuthRouter from "./gcp-auth";
-import dialogflowRouter from "./dialogflow";
-
+import chatRouter from "./chat";
 
 const router = Router();
 
 router.use(healthRouter);
-router.use(gcpAuthRouter);
-router.use(dialogflowRouter);
-
+router.use(chatRouter);
 
 export default router;
