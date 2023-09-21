@@ -1,27 +1,61 @@
-# React + TypeScript + Vite
+# Parcial CIU Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Introducción
+En este proyecto se creó un cliente de chat que se comunica con el backend para acceder a distintas API de chatbot, siendo la principal DialogFlow, pero permitiendo la expansión a otros modelos como `OpenAI`.
 
-Currently, two official plugins are available:
+Una versión de produccion puede encontrarse en:
+- [Netlify](https://main--incredible-pegasus-cfa682.netlify.app/)
+- [Self-Hosted](https://parcial1-ciu.lglab.com.ar/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Diseño
+La app se inpira en varios clientes de chat conocidos como pueden ser Telegram, WhatsApp y Discord. El diseño puede visualizarse en [Figma](https://www.figma.com/file/NxIrFh6mAGtPpKSnKGwUFa/Untitled?type=design&node-id=3-43&mode=design&t=7aN5um1BILWuohuy-0)
 
-## Expanding the ESLint configuration
+## Cómo iniciar el proyecto
+Luego de clonar el repositorio, se debe: 
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+1. Acceder a la carpeta `primer-parcial/frontend`
+2. Ejecutar el comando `npm i` para instalar las dependencias
+3. Ejecutar el comando `npm run dev` para ejecutar el ambiente de desarrollo 
 
-- Configure the top-level `parserOptions` property like this:
+## Cómo compilar el proyecto
+Luego de clonar el repositorio, se debe: 
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
+1. Acceder a la carpeta `primer-parcial/frontend`
+2. Ejecutar el comando `npm i` para instalar las dependencias
+3. Ejecutar el comando `npm run build` para compilar. Esto generará el directorio `dist` con la version compilada del frontend.
+
+Tambien puede generarse una imagen de docker con la dockerfile incluida utilizando el comando `docker build -t <nombre_tag> ./`
+
+## Estructura de la solución
+Dentro del directorio `src` del proyecto se enccuantra la siguiente estructura
+
+
+| Archivo/Carpeta | Descripción |
+| --------------- | ----------- |
+| src/components  | Directorio raiz para todos los componentes de la interfaz |
+| src/context     | Contextos de React |
+| src/types       | Definiciones de tipos de TypeScript |
+| src/utils       | Librerías de funciones utilitarias |
+| src/services    | Servicios de comunicación REST |
+| src/assets      | Assets estaticos del proyecto |
+
+```sh
+.src
++-- components
+|   +-- component_A   
+|   |   +-- index.tsx
+|   |   +-- style.scss
++-- utils
+|   +-- util_A.ts
+|   +-- util_B.ts
++-- types     
+|   +-- type_A.ts
+|   +-- type_B.ts
++-- services     
+|   +-- service_A.ts
+|   +-- service_B.ts
++-- index.tsx
++-- index.scss
++-- App.tsx
++-- App.scss
 ```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
