@@ -1,9 +1,22 @@
-import DialogflowDriver, { Lang, SessionData } from "../drivers/dialogflow";
+import { Lang } from "../types/lang";
+import DialogflowDriver, { SessionData } from "../drivers/dialogflow";
+import Models, { Model, ModelKeys } from "../types/model";
 
 const DialogFlow = DialogflowDriver.getInstance("ciu-parcial");
 
-export function createSession(lang?: Lang): string {
-  return DialogFlow.newSession(lang);
+export function createSession(model: Model, lang?: Lang): string {
+  switch (model) {
+    case Models.DIALOGFLOW:
+      return DialogFlow.newSession(lang);
+    case Models.GPT:
+      return "123";
+    default:
+      throw new Error(
+        `Model "${model}" is not a valid model, please use: [${ModelKeys.join(
+          ", "
+        )}]`
+      );
+  }
 }
 
 export function getAllSessions(): SessionData[] {

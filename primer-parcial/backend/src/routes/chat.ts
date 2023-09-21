@@ -11,9 +11,9 @@ const dialogflowRouter = Router();
 dialogflowRouter
   .route("/chat/session/")
   .post(async (req, res) => {
-    const { lang } = req.body;
+    const { lang, model } = req.body;
 
-    const sessionId = createSession(lang);
+    const sessionId = createSession(model, lang);
 
     res.status(201).json({ data: { sessionId } });
   })
