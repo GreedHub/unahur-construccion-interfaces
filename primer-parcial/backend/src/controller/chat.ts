@@ -9,7 +9,6 @@ import GPTDriver from "../drivers/gpt";
 const DialogFlow = DialogflowDriver.getInstance("ciu-parcial");
 const GPT = GPTDriver.getInstance("ciu-parcial");
 
-
 export function createSession(model: Model, lang?: Lang): Promise<string> {
   const sessionId = uuid.v4();
 
@@ -19,7 +18,7 @@ export function createSession(model: Model, lang?: Lang): Promise<string> {
     case Models.GPT:
       return Promise.resolve(GPT.newSession(sessionId, lang));
     case Models.MOCK:
-      return Promise.resolve('mock_id');
+      return Promise.resolve("mock_id");
     default:
       return Promise.reject(
         `Model "${model}" is not a valid model, please use: [${ModelKeys.join(
@@ -30,19 +29,15 @@ export function createSession(model: Model, lang?: Lang): Promise<string> {
 }
 
 export function getAllSessions(): SessionData[] {
-  return [
-    ...DialogFlow.getAllSessions(),
-    ...GPT.getAllSessions(),
-  ];
+  return [...DialogFlow.getAllSessions(), ...GPT.getAllSessions()];
 }
 
 function _getSessionById(sessionId: string): SessionData {
   let session = DialogFlow.getSessionById(sessionId);
 
-  if (!session)
-    session = GPT.getSessionById(sessionId)
+  if (!session) session = GPT.getSessionById(sessionId);
 
-  if(!session)
+  if (!session)
     session = {
       id: "mock_id",
       model: "MOCK",
@@ -65,7 +60,7 @@ export async function answerPrompt(
     case Models.GPT:
       return GPT.answerPrompt(sessionId, prompt);
     case Models.MOCK:
-      return Promise.resolve(`Response to ${prompt}`);
+      return GPT.answerPrompt(sessionId, prompt);
     default:
       Promise.reject(invalidModelException(model));
   }
