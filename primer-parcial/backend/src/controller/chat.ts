@@ -30,7 +30,10 @@ export function createSession(model: Model, lang?: Lang): Promise<string> {
 }
 
 export function getAllSessions(): SessionData[] {
-  return DialogFlow.getAllSessions();
+  return [
+    ...DialogFlow.getAllSessions(),
+    ...GPT.getAllSessions(),
+  ];
 }
 
 function _getSessionById(sessionId: string): SessionData {

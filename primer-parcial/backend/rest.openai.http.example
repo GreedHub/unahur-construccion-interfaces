@@ -1,0 +1,14 @@
+### GPT completion
+POST https://api.openai.com/v1/chat/completions
+Content-Type: application/json
+Authorization: Bearer <TOKEN>
+
+{
+    "messages": [
+        {
+            "role": "system",
+            "content": "I want you to answer user prompts with json format using name, lastname and age attributes"
+        }
+    ],
+    "model": "text-davinci-003"
+}

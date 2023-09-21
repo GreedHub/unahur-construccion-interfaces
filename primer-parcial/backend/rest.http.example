@@ -1,21 +1,20 @@
 ### GET Health
-GET http://localhost:5000/health
+GET https://api-parcial1-ciu.lglab.com.ar/health
 
 ### GET sessions
-GET http://localhost:5000/chat/session/
-
+GET https://api-parcial1-ciu.lglab.com.ar/chat/session/
 
 ### Create session
-POST http://localhost:5000/chat/session/
+POST https://api-parcial1-ciu.lglab.com.ar/chat/session/
 Content-Type: application/json
 
 {
     "lang": "en-US",
-    "model": "DIALOGFLOW"
+    "model": "GPT"
 }
 
 ### Send prompt
-POST http://localhost:5000/chat/475c48a3-aa1a-4028-8c34-a94f5784abc9/prompt
+POST https://api-parcial1-ciu.lglab.com.ar/chat/475d3b16-d5c2-4404-9175-9ab62d2d149c/prompt
 Content-Type: application/json
 
 {
