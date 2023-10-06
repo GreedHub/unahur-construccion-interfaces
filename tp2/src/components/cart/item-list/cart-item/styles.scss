@@ -1,0 +1,24 @@
+.cart-items__item{
+    padding: .2em;
+    display: grid;
+    gap: 1em;
+    margin-bottom: 2em;
+    grid-template-columns: 1fr 50px;
+    grid-template-rows: 1fr 1em;
+    grid-template-areas: "title delete"
+                         "price delete";
+
+    &-title{
+        grid-area: title;
+    }
+
+    &-price{
+        grid-area: price;
+    }
+
+
+    &-delete{
+        grid-area: delete;
+    }
+
+}

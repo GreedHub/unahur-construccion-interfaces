@@ -1,0 +1,25 @@
+@use "sass:map";
+
+$palette: (
+  text-primary: #f2f3f5,
+  text-secondary: #e8e7e9,
+  background: #292F3F,
+  background-dark: #1F232F,
+  background-light: #373E4E,
+  accent: #01AC85,
+  separator: #373E4E,
+  outline: #373E4E,
+  scroll: #373E4E,
+);
+
+$radius: 10px;
+$max-width: 1500px;
+
+%centered{
+  max-width: $max-width;
+  margin: 0 auto;
+}
+
+@function color($colorName) {
+  @return map-get($map: $palette, $key: $colorName);
+}

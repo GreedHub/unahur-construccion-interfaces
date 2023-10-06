@@ -1,0 +1,10 @@
+@import '../../globals.scss';
+
+.product-list{
+    grid-area: products;
+    list-style: none;
+    display: grid;
+    gap: 2em;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    margin: 2em 0;
+}

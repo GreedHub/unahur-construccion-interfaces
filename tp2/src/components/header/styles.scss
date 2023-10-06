@@ -1,0 +1,42 @@
+@import '../../globals.scss';
+
+header{
+    grid-area: header;
+    background-color: color("background");
+    height: 60px;
+    width: 100%;
+
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    .container{
+        @extend %centered;
+        height: 100%;
+        width: 100%;
+        max-width: $max-width;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        a{
+            display: flex;
+            height: 80%;
+            align-items: center;
+            font-size: 1.5em;
+            text-decoration: none;
+            color: color("text-primary");
+
+            img{
+                margin-right: .5em;
+                max-height: 80%;
+            }
+        }
+    }
+}

@@ -1,0 +1,45 @@
+@import '../../globals.scss';
+
+.shopping-cart{
+    color: color("text-primary");
+    height: 100%;
+    width: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    &:hover{
+        cursor: pointer;
+        background-color: color("background-dark");
+
+        .shopping-cart__content{
+            display: block;
+        }
+    }
+
+    &__count{
+        position: absolute;
+        right: 0;
+        top: 0;
+        background-color: red;
+        width: 20px;
+        height: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 100%;
+    }
+
+    &__content{
+        display: none;
+        border-radius: $radius;
+        border-top-right-radius: 0;
+        position: absolute;
+        background-color: color("background-dark");
+        padding: 20px;
+        top: 60px;
+        left: -280px;
+        width: 300px;
+    }
+}

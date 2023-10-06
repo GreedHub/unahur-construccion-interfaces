@@ -1,0 +1,15 @@
+@import './globals.scss';
+
+.app {
+  width: 100vw;
+  height: 100vh;
+  height: --webkit-fill-available;
+  height: 100dvh;
+  display: grid;
+  grid-template-columns: auto minmax(auto, $max-width) auto;
+  grid-template-rows: 60px 1fr minmax(100px, auto);
+  grid-template-areas: "header header header"
+                       "blank1 products blank2"
+                       "footer footer footer";
+
+}

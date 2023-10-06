@@ -1,0 +1,59 @@
+@import '../../../globals.scss';
+
+.product-list__item{
+    background-color: color("background-light");
+    border-radius: $radius;
+    display: grid;
+    grid-template-rows: 250px,  10em, 2em;
+    grid-template-columns: 1fr 100px;
+    padding: 0px 1.2em 1.2em 1.2em;
+    gap:1em;
+    grid-template-areas: "img img"
+                         "title title"
+                         "description description"
+                         "price buy";
+
+    img{
+        grid-area: img;
+        max-height: 250px;
+        justify-self: center;
+    }
+
+    .product-list__item-price{
+        grid-area: price;
+        color:color("text-primary");
+        font-weight: 400;
+        font-size: 1.5em;
+        display: flex;
+        align-items: center;
+    }
+
+    .product-list__item-name{
+        grid-area: title;
+        color:color("text-primary");
+        font-size: 1.2em;
+
+
+    }
+
+    .product-list__item-description{
+        grid-area: description;
+        color:color("text-secondary");
+        line-height: 1.4em;
+    }
+
+    button{
+        grid-area: buy;
+        padding: 1em .5em;
+        font-size: 1em;
+        font-weight: bold;
+        letter-spacing: .05em;
+        border:none;
+        border-radius: $radius;
+
+        &:hover{
+            cursor: pointer;
+        }
+    }
+
+}

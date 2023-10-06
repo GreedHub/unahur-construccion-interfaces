@@ -1,0 +1,12 @@
+@import '../../globals.scss';
+
+footer{
+    grid-area: footer;
+    background-color: color("background-dark");
+    
+
+    .container{
+        @extend %centered;
+        display: flex;
+    }
+}
