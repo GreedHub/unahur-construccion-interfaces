@@ -1,0 +1,17 @@
+@import "../../globals.scss";
+
+.badge {
+  border: solid 1px color("text-primary");
+  color: color("text-primary");
+  border-radius: $radius;
+  font-size: 1em;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3px 5px;
+
+  &__icon {
+    max-height: 1rem;
+  }
+}

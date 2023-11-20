@@ -10,13 +10,13 @@ export type TopicKeys = keyof typeof TopicTypes;
 type Topic = Favoriteable &
   Pineable & {
     id: string;
+    assignmentId: string;
     type: TopicKeys;
     name: string;
-    careers: string[];
     ownerId: string;
     commentsCount: number;
     likesCount: number;
-    creationDateTime: Date;
+    creationDateTime: Date | string;
   };
 
 export default Topic;
