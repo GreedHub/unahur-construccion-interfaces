@@ -6,7 +6,7 @@
   padding: $padding;
   display: grid;
   gap: 1em;
-  grid-template-columns: 4fr 1fr;
+  grid-template-columns: 4fr minmax(auto, 100px);
   grid-template-rows: 20px 1fr 1.5em;
   grid-template-areas:
     "info favorite"

@@ -8,24 +8,35 @@ import { GetCareers } from "./services/carrer";
 import { GetTopicsByAssignment } from "./services/topic";
 import Topic from "./components/topic";
 import TopicType from "./types/topic";
+import MobileNav from "./components/nav-mobile";
+import { GetUserInfo } from "./services/user";
+import User from "./types/user";
 
 function App() {
-  const [institutes, SetInstitutes] = useState<Institute[]>([]);
-  const [careers, SetCareers] = useState<Career[]>([]);
+  const [institutes, setInstitutes] = useState<Institute[]>([]);
+  const [careers, setCareers] = useState<Career[]>([]);
+  const [user, setUser] = useState<User>([]);
 
-  const [topics, SetTopics] = useState<TopicType[]>([]);
+  const [topics, setTopics] = useState<TopicType[]>([]);
 
   useEffect(() => {
     GetInstitutes()
-      .then((inst) => SetInstitutes(inst))
+      .then((inst) => setInstitutes(inst))
       .catch((err) => console.error(err));
 
     GetCareers()
-      .then((car) => SetCareers(car))
+      .then((car) => setCareers(car))
       .catch((err) => console.error(err));
 
     GetTopicsByAssignment("mate1")
-      .then((topics) => SetTopics(topics))
+      .then((topics) => setTopics(topics))
+      .catch((err) => console.error(err));
+
+    GetUserInfo("ojqweqwoiweoqiwei")
+      .then((user) => {
+        if (!user) return;
+        setUser(user);
+      })
       .catch((err) => console.error(err));
   }, []);
 
@@ -51,6 +62,7 @@ function App() {
           key={id}
         />
       ))}
+      <MobileNav user={user} />
     </div>
   );
 }
