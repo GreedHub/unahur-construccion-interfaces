@@ -1,0 +1,48 @@
+@import "../../globals.scss";
+
+.category {
+  display: flex;
+  height: 65px;
+  border-radius: $radius;
+  background-color: color("background-card");
+  align-items: stretch;
+
+  &__header {
+    background-color: #202020;
+    border-radius: $radius 0 0 $radius;
+    width: 20%;
+    min-width: 80px;
+    max-width: 110px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &.biotechnology &__header {
+    background-color: color("biotechnology");
+  }
+
+  &.education &__header {
+    background-color: color("education");
+  }
+
+  &.comunitary_health &__header {
+    background-color: color("comunitary_health");
+  }
+
+  &.technology_and_ingeniery &__header {
+    background-color: color("technology_and_ingeniery");
+  }
+
+  &__icon {
+    height: 50px;
+    width: 50px;
+  }
+
+  &__title {
+    align-self: center;
+    padding-left: $padding;
+    font-weight: 400;
+    color: color("text-primary");
+  }
+}

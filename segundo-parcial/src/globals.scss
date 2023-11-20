@@ -1,0 +1,26 @@
+@use "sass:map";
+
+$palette: (
+  text-primary: #202020,
+  text-secondary: #747474,
+  background: #292f3f,
+  background-card: #ffffff,
+  background-dark: #1f232f,
+  background-light: #373e4e,
+  accent: #01ac85,
+  separator: #373e4e,
+  outline: #373e4e,
+  scroll: #373e4e,
+
+  biotechnology: #0189cd,
+  education: #e64f50,
+  comunitary_health: #00988f,
+  technology_and_ingeniery: #dc7500,
+);
+
+$radius: 10px;
+$padding: 20px;
+
+@function color($colorName) {
+  @return map-get($map: $palette, $key: $colorName);
+}
