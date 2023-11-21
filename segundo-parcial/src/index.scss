@@ -16,6 +16,13 @@ body {
   background-color: color("background");
 }
 
+.desktop {
+  display: none;
+}
+.mobile {
+  display: flex;
+}
+
 ::-webkit-scrollbar {
   width: 5px;
 }
@@ -38,7 +45,8 @@ body {
   .desktop {
     display: initial;
   }
-  .mobile {
+  .mobile,
+  nav.mobile {
     display: none;
   }
 }

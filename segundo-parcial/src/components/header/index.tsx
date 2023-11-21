@@ -7,15 +7,15 @@ type MobileNavProps = {
   user?: User;
 };
 
-export default function MobileNav(props: MobileNavProps) {
+export default function Header(props: MobileNavProps) {
   const { user } = props;
 
   return (
-    <header>
-      <nav className="mobile-nav mobile">
-        <Link to="/">
-          <Home />
-        </Link>
+    <header className="desktop">
+      <Link to="/">
+        <Home /> Foro UNAHUR
+      </Link>
+      <nav>
         <Link to="/search">
           <Search />
         </Link>
