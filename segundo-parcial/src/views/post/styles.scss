@@ -3,4 +3,9 @@
   flex-direction: column;
   gap: 20px;
   padding: 20px;
+  padding-bottom: 90px;
+  overflow-y: auto;
+  max-height: 100vh;
+  max-height: 100dvh;
+  box-sizing: border-box;
 }

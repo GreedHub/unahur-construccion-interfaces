@@ -35,6 +35,12 @@
     grid-area: attachments;
   }
 
+  &__attachment {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
   &__info {
     grid-area: info;
     display: flex;
@@ -72,6 +78,8 @@
 
   blockquote {
     padding-left: 20px;
-    border-left: solid 5px #747474;
+    border-left: solid 5px color("text-secondary");
+    font-style: italic;
+    color: color("text-secondary");
   }
 }

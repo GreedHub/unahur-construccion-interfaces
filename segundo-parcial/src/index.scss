@@ -7,8 +7,13 @@
 }
 
 body {
+  width: 100vw;
+  width: 100dvw;
+  height: 100vh;
+  height: --webkit-fill-available;
+  height: 100dvh;
+  box-sizing: border-box;
   background-color: color("background");
-  height: 200vh;
 }
 
 ::-webkit-scrollbar {
@@ -27,4 +32,13 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
   background: lighten(color("scroll"), 3);
+}
+
+@media screen and (min-width: 800px) {
+  .desktop {
+    display: initial;
+  }
+  .mobile {
+    display: none;
+  }
 }
