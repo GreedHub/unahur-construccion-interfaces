@@ -29,6 +29,7 @@
 
   &__content {
     grid-area: content;
+    overflow-wrap: break-word;
   }
 
   &__attachments {
