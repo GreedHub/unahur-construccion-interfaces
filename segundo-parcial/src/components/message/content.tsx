@@ -18,8 +18,9 @@ export default function ForumMessageContent(props: ForumMessageContentProps) {
     if (!parent) return;
 
     const parentWidth = parent.clientWidth;
+    const PARENT_PADDING = 20;
 
-    content.style.maxWidth = `${parentWidth - 40}px`;
+    content.style.maxWidth = `${parentWidth - 2 * PARENT_PADDING}px`;
   };
 
   useEffect(() => {
