@@ -4,7 +4,7 @@ type ForumMessage = {
   creationDateTime: Date;
   content: string;
   likesCount: number;
-  attachments: ForumAttachment;
+  attachments: ForumAttachment[];
 };
 
 export type ForumAttachment = {
