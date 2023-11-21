@@ -9,7 +9,7 @@ export default function ForumMessageContent(props: ForumMessageContentProps) {
 
   return (
     <div
-      className="forum-message__title"
+      className="forum-message__content"
       dangerouslySetInnerHTML={{ __html: content }}
     ></div>
   );

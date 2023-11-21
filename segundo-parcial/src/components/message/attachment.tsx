@@ -18,8 +18,8 @@ export default function ForumMessageAttachments(
 
   return (
     <div className="forum-message__attachments">
-      {attachments.map((attachment) => (
-        <ForumMessageAttachment attachment={attachment} />
+      {attachments.map((attachment, id) => (
+        <ForumMessageAttachment attachment={attachment} key={id} />
       ))}
     </div>
   );
@@ -31,7 +31,9 @@ function ForumMessageAttachment(props: ForumMessageAttachmentProps) {
   return (
     <div className="forum-message__attachment">
       <FilePresentIcon />
-      <a href={`files/attachments/${id}`}>{title}</a>
+      <a href={`files/attachments/${id}`} download={true}>
+        {title}
+      </a>
     </div>
   );
 }

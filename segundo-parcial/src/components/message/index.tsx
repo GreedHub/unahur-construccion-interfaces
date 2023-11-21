@@ -1,29 +1,29 @@
 import Topic from "../../types/topic";
-import ForumMessage from "../../types/forum-message";
+import ForumMessageType from "../../types/forum-message";
 import ForumMessageCounters from "./counters";
 import ForumMessageInfo from "./info";
 import ForumMessageTitle from "./title";
-import "./styles.scss";
 import ForumMessageContent from "./content";
 import ForumMessageAttachments from "./attachment";
+import "./styles.scss";
 
-type MessageProps = {
-  topic: Topic;
-  message: ForumMessage;
+type ForumMessageProps = {
+  topic?: Topic;
+  message: ForumMessageType;
 };
 
-export default function Message(props: MessageProps) {
+export default function ForumMessage(props: ForumMessageProps) {
   const { ownerId, creationDateTime, content, likesCount, attachments } =
     props.message;
 
-  const { name, type } = props.topic;
+  const { topic } = props;
 
   return (
-    <div className="message">
+    <div className="forum-message">
       <ForumMessageInfo ownerId={ownerId} creationDateTime={creationDateTime} />
-      <ForumMessageTitle title={name} type={type} />
+      {topic && <ForumMessageTitle title={topic.name} type={topic.type} />}
       <ForumMessageContent content={content} />
-      <ForumMessageAttachments attachments={attachments} />
+      {attachments && <ForumMessageAttachments attachments={attachments} />}
       <ForumMessageCounters likesCount={likesCount} />
     </div>
   );

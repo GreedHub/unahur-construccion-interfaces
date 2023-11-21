@@ -1,9 +1,9 @@
-import { Star, Search, Home } from "@mui/icons-material";
+import { Star, Search, Home, AccountCircle } from "@mui/icons-material";
 import User from "../../types/user";
 import "./styles.scss";
 
 type MobileNavProps = {
-  user: User;
+  user?: User;
 };
 
 export default function MobileNav(props: MobileNavProps) {
@@ -21,7 +21,8 @@ export default function MobileNav(props: MobileNavProps) {
         <Star />
       </a>
       <a href="#">
-        <img src={user.picture} alt="user_picture" />
+        {user && <img src={user.picture} alt="user_picture" />}
+        {!user && <AccountCircle />}
       </a>
     </nav>
   );

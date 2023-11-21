@@ -4,12 +4,21 @@ const TIMEOUT = 100;
 
 const USERS: User[] = [
   {
-    id: "ojqweqwoiweoqiwei",
+    id: "bsmith43",
     username: "bsmith43",
     email: "bsmith43@gmail.com",
     picture:
       "https://toppng.com/uploads/preview/circled-user-icon-user-pro-icon-11553397069rpnu1bqqup.png",
     creationDate: "2023-11-20T14:43:05.861Z",
+    phoneNumber: "(11) 1234-1234",
+  },
+  {
+    id: "rsanchez53",
+    username: "rsanchez53",
+    email: "rsanchez53@gmail.com",
+    picture:
+      "https://toppng.com/uploads/preview/circled-user-icon-user-pro-icon-11553397069rpnu1bqqup.png",
+    creationDate: "2023-11-20T15:43:05.861Z",
     phoneNumber: "(11) 1234-1234",
   },
 ];

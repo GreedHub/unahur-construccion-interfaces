@@ -1,10 +1,11 @@
 type ForumMessage = {
   id: string;
+  topicId: string;
   ownerId: string;
-  creationDateTime: Date;
+  creationDateTime: Date | string;
   content: string;
   likesCount: number;
-  attachments: ForumAttachment[];
+  attachments?: ForumAttachment[];
 };
 
 export type ForumAttachment = {
