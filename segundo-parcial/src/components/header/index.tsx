@@ -14,7 +14,7 @@ export default function Header(props: MobileNavProps) {
     <header className="desktop">
       <nav>
         <Link to="/" className="home-btn">
-          <Home className="header-icon" /> Foro UNAHUR
+          <img src="/favicon.png" className="header-icon" /> Foro UNAHUR
         </Link>
         <span>
           <Link to="/search">
@@ -24,7 +24,13 @@ export default function Header(props: MobileNavProps) {
             <Star className="header-icon" />
           </Link>
           <Link to="/profile">
-            {user && <img src={user.picture} alt="user_picture" />}
+            {user && (
+              <img
+                src={user.picture}
+                alt="user_picture"
+                className="user-icon"
+              />
+            )}
             {!user && <AccountCircle className="header-icon" />}
           </Link>
         </span>
