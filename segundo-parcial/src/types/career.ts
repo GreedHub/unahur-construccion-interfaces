@@ -1,4 +1,4 @@
-import Favoriteable from "./favorite";
+import Favoriteable, { Linkeable } from "./favorite";
 import { InstituteKeys } from "./institute";
 
 type Career = Favoriteable & {
@@ -6,5 +6,7 @@ type Career = Favoriteable & {
   name: string;
   institute: InstituteKeys;
 };
+
+export type CareerWithLink = Career & Linkeable;
 
 export default Career;

@@ -19,3 +19,18 @@ export async function GetInstitutes(): Promise<Institute[]> {
     }, TIMEOUT);
   });
 }
+
+export async function GetInstituteById(
+  instituteId: string
+): Promise<Institute> {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const institute = INSTITUTES.find((i) => i.id === instituteId);
+
+      if (!institute)
+        return reject(`No institute with id ${instituteId} found`);
+
+      resolve(institute);
+    }, TIMEOUT);
+  });
+}

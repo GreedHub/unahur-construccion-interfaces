@@ -40,3 +40,17 @@ export async function GetCareerById(careerId: string): Promise<Career> {
     }, TIMEOUT);
   });
 }
+
+export async function GetCareersByInstituteId(
+  instituteId: string
+): Promise<Career[]> {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const careers = CAREERS.filter((c) => c.institute === instituteId);
+      if (!careers)
+        return reject(`No carrers with institute ${instituteId} found`);
+
+      resolve(careers);
+    }, TIMEOUT);
+  });
+}

@@ -7,6 +7,10 @@
   background-color: color("background-card");
   align-items: stretch;
 
+  a {
+    text-decoration: none;
+  }
+
   &__header {
     background-color: #202020;
     border-radius: $radius 0 0 $radius;
@@ -16,6 +20,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
   }
 
   &.biotechnology &__header {
@@ -42,7 +52,10 @@
   &__title {
     align-self: center;
     padding-left: $padding;
-    font-weight: 400;
-    color: color("text-primary");
+
+    h3 {
+      font-weight: 400;
+      color: color("text-primary");
+    }
   }
 }

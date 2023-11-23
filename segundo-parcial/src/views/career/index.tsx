@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 
 import CareerType from "../../types/career";
-import Assignment, { AssignmentWithLink } from "../../types/assignment";
+import { AssignmentWithLink } from "../../types/assignment";
 
 import Search from "../../components/search";
 

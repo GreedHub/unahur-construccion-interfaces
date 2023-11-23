@@ -78,6 +78,7 @@ export default function Home() {
                   img={`/icons/careers/${cat.id}.svg`}
                   title={cat.name}
                   color={cat.institute}
+                  link={`/career?id=${cat.id}`}
                   key={id}
                 />
               );
@@ -89,6 +90,7 @@ export default function Home() {
                 img={`/icons/institutes/${category.id}.svg`}
                 title={cat.name}
                 color={cat.id}
+                link={`/institute?id=${cat.id}`}
                 key={id}
               />
             );
