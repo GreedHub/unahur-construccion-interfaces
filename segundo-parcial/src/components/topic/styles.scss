@@ -6,12 +6,31 @@
   padding: $padding;
   display: grid;
   gap: 1em;
-  grid-template-columns: 4fr minmax(auto, 100px);
+  grid-template-columns: 4fr minmax(auto, 50px);
   grid-template-rows: 20px 1fr 1.5em;
   grid-template-areas:
     "info favorite"
     "title favorite"
     "counters favorite";
+
+  &.hide-info {
+    grid-template-rows: 1fr 1.5em;
+    grid-template-areas:
+      "title favorite"
+      "counters favorite";
+  }
+
+  &.hide-counters {
+    grid-template-rows: 20px 1fr;
+    grid-template-areas:
+      "info favorite"
+      "title favorite";
+  }
+
+  &.hide-counters.hide-info {
+    grid-template-rows: 1fr;
+    grid-template-areas: "title favorite";
+  }
 
   &__counters {
     grid-area: counters;
@@ -23,15 +42,19 @@
 
   &__title {
     grid-area: title;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
   }
 
   &__info {
     grid-area: info;
     display: flex;
     align-items: center;
+    font-size: 0.8em;
 
     .topic__picture {
-      max-height: 100%;
+      max-height: 80%;
       border-radius: 100%;
       margin-right: 10px;
     }
@@ -42,7 +65,7 @@
     }
 
     .topic__pin {
-      max-height: 1rem;
+      max-height: 0.8rem;
     }
   }
 
@@ -56,7 +79,7 @@
     }
 
     svg {
-      font-size: 5em;
+      font-size: 3rem;
     }
   }
 }

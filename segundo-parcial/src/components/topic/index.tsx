@@ -23,8 +23,15 @@ export default function Topic(props: TopicProps) {
     isFavorite,
   } = props;
 
+  const hasInfo = (ownerId && creationDateTime) || false;
+  const hasCounters = commentsCount || likesCount;
+
+  const customClasses = `${!hasInfo && "hide-info"} ${
+    !hasCounters && "hide-counters"
+  }`;
+
   return (
-    <div className="topic">
+    <div className={`topic ${customClasses}`}>
       {ownerId && creationDateTime && (
         <TopicInfo
           ownerId={ownerId}
@@ -33,7 +40,9 @@ export default function Topic(props: TopicProps) {
         />
       )}
       <TopicTitle title={name} type={type} />
-      <TopicCounters commentsCount={commentsCount} likesCount={likesCount} />
+      {hasCounters && (
+        <TopicCounters commentsCount={commentsCount} likesCount={likesCount} />
+      )}
       <TopicFavorite isFavorite={isFavorite} />
     </div>
   );
