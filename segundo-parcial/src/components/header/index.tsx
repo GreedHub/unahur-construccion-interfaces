@@ -1,4 +1,4 @@
-import { Star, Search, Home, AccountCircle } from "@mui/icons-material";
+import { Star, Search, AccountCircle } from "@mui/icons-material";
 import User from "../../types/user";
 import "./styles.scss";
 import { Link } from "react-router-dom";

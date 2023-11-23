@@ -20,7 +20,6 @@ export default function Assignment() {
     elements: TopicWithLink[],
     filterText: string
   ): TopicWithLink[] => {
-    console.log({ elements, filterText });
     return elements.filter((t) =>
       t.name.toLocaleLowerCase().includes(filterText.toLocaleLowerCase())
     );

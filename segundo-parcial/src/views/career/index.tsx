@@ -20,7 +20,6 @@ export default function CareerView() {
     elements: AssignmentWithLink[],
     filterText: string
   ): AssignmentWithLink[] => {
-    console.log({ elements, filterText });
     return elements.filter((t) =>
       t.name.toLocaleLowerCase().includes(filterText.toLocaleLowerCase())
     );

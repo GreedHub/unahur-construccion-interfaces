@@ -9,7 +9,7 @@ type SearchViewProps<T> = {
   filterBy: (elements: T[], param: string) => T[];
 };
 
-export default function SearchView<T extends TopicProps>(
+export default function Search<T extends TopicProps>(
   props: SearchViewProps<T>
 ) {
   const { elements, filterBy } = props;
@@ -17,6 +17,7 @@ export default function SearchView<T extends TopicProps>(
   const [filteredElements, setFilteredElements] = useState<T[]>(elements);
 
   useEffect(() => {
+    console.log({ elements });
     setFilteredElements(() => elements);
   }, [elements]);
 

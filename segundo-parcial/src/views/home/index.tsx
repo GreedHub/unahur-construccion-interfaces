@@ -36,10 +36,7 @@ export default function Home() {
       case "INSTITUTE":
       default:
         GetInstitutes()
-          .then((inst) => {
-            console.log({ inst });
-            setCategories(inst);
-          })
+          .then((inst) => setCategories(() => inst))
           .catch((err) => console.error(err));
         return;
     }

@@ -29,6 +29,14 @@ const TOPICS: Topic[] = [
   },
 ];
 
+export async function GetTopics(): Promise<Topic[]> {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(TOPICS);
+    }, TIMEOUT);
+  });
+}
+
 export async function GetTopicsByAssignment(
   assignmentId: string
 ): Promise<Topic[]> {
