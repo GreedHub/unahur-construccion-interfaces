@@ -6,7 +6,20 @@ const ASSIGNMENTS: Assignment[] = [
   {
     id: "mate1",
     name: "Matemática 1",
-    careers: ["tec-laboratory", "tec-ambiental-science", "lic-food-technology"],
+    careers: [
+      "tec-laboratory",
+      "tec-ambiental-science",
+      "lic-food-technology",
+      "tec-programming",
+      "tec-industrial-maintenance",
+      "ing-electric",
+      "prof-physical-education",
+      "lic-education",
+      "prof-english",
+      "univ-nursing",
+      "lic-kinesiology-and-physiatry",
+      "lic-obstetrics",
+    ],
   },
 ];
 

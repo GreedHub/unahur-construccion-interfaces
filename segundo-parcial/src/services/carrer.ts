@@ -19,6 +19,51 @@ const CAREERS: Career[] = [
     name: "Licenciatura en Tecnología de los Alimentos",
     institute: Institutes.biotechnology,
   },
+  {
+    id: "tec-programming",
+    name: "Tecnicatura en Programación",
+    institute: Institutes.technology_and_ingeniery,
+  },
+  {
+    id: "tec-industrial-maintenance",
+    name: "Tecnicatura Universitaria en Mantenimiento Industrial",
+    institute: Institutes.technology_and_ingeniery,
+  },
+  {
+    id: "ing-electric",
+    name: "Ingeniería Eléctrica",
+    institute: Institutes.technology_and_ingeniery,
+  },
+  {
+    id: "prof-physical-education",
+    name: "Profesorado Universitario en Educación Física",
+    institute: Institutes.education,
+  },
+  {
+    id: "lic-education",
+    name: "Licenciatura en Educación",
+    institute: Institutes.education,
+  },
+  {
+    id: "prof-english",
+    name: "Profesorado Universitario de Inglés",
+    institute: Institutes.education,
+  },
+  {
+    id: "univ-nursing",
+    name: "Enfermería Universitaria",
+    institute: Institutes.comunitary_health,
+  },
+  {
+    id: "lic-kinesiology-and-physiatry",
+    name: "Licenciatura en Kinesiología y Fisiatría",
+    institute: Institutes.comunitary_health,
+  },
+  {
+    id: "lic-obstetrics",
+    name: "Licenciatura en Obstetricia",
+    institute: Institutes.comunitary_health,
+  },
 ];
 
 export async function GetCareers(): Promise<Career[]> {
