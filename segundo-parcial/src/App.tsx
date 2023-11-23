@@ -1,13 +1,13 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import ForumPost from "./views/post";
-import NotFound from "./views/erros/404";
+import NotFound from "./views/errors/404";
 import Template from "./views/template";
 import Home from "./views/home";
 
 import "./App.scss";
 import Profile from "./views/profile";
-import SomethingWentWrong from "./views/erros/500";
+import SomethingWentWrong from "./views/errors/500";
 import { useEffect, useState } from "react";
 import { GetUserInfoById } from "./services/user";
 import User from "./types/user";

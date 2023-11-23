@@ -8,6 +8,8 @@
   border-radius: $radius;
   color: color("text-primary");
   gap: 2em;
+  box-sizing: border-box;
+  margin: 80px 20px;
 
   h1 {
     font-size: 5em;

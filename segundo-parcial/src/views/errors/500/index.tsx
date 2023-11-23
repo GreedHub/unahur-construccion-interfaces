@@ -3,11 +3,11 @@ import "./styles.scss";
 
 export default function SomethingWentWrong() {
   return (
-    <div className="not-found">
+    <article className="not-found">
       <h1>Oops!</h1>
       <h2>Parece que ocurrió un error de nuestro lado.</h2>
       <p>Código de error: 500.</p>
       <Link to="/">Volver al inicio</Link>
-    </div>
+    </article>
   );
 }
