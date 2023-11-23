@@ -9,7 +9,7 @@ const ASSIGNMENTS: Assignment[] = [
     careers: ["tec-laboratory", "tec-ambiental-science", "lic-food-technology",
               "tec-programming", "tec-industrial-maintenance", "ing-electric", 
               "prof-physical-education", "lic-education", "prof-english", 
-              "univ-nursing", "lic-Kinesiology-and-Physiatry", "lic-obstetrics"],
+              "univ-nursing", "lic-kinesiology-and-physiatry", "lic-obstetrics"],
   },
   {
     id: "bio-gral",
@@ -19,7 +19,7 @@ const ASSIGNMENTS: Assignment[] = [
   {
     id: "epidemiologia",
     name: "Epidemiología",
-    careers: ["lic-Kinesiology-and-Physiatry"],
+    careers: ["lic-kinesiology-and-physiatry"],
   },
   {
     id: "enf-en-salud-mental",
@@ -67,7 +67,7 @@ const ASSIGNMENTS: Assignment[] = [
     careers: ["tec-laboratory", "tec-ambiental-science", "lic-food-technology",
               "tec-programming", "tec-industrial-maintenance", "ing-electric", 
               "prof-physical-education", "lic-education", "prof-english", 
-              "univ-nursing", "lic-Kinesiology-and-Physiatry", "lic-obstetrics"],
+              "univ-nursing", "lic-kinesiology-and-physiatry", "lic-obstetrics"],
   },
   {
     id: "CIU",
