@@ -4,7 +4,7 @@ import { useSearchParams } from "react-router-dom";
 import { GetAssignmentById } from "../../services/assignment";
 import { GetTopicsByAssignment } from "../../services/topic";
 
-import Topic from "../../types/topic";
+import Topic, { TopicWithLink } from "../../types/topic";
 import AssignmentType from "../../types/assignment";
 
 import Search from "../../components/search";
@@ -13,10 +13,13 @@ import "./styles.scss";
 
 export default function Assignment() {
   const [assignment, setAssignment] = useState<AssignmentType>();
-  const [topics, setTopics] = useState<Topic[]>([]);
+  const [topics, setTopics] = useState<TopicWithLink[]>([]);
   const [searchParams] = useSearchParams();
 
-  const filterBy = (elements: Topic[], filterText: string): Topic[] => {
+  const filterBy = (
+    elements: TopicWithLink[],
+    filterText: string
+  ): TopicWithLink[] => {
     console.log({ elements, filterText });
     return elements.filter((t) =>
       t.name.toLocaleLowerCase().includes(filterText.toLocaleLowerCase())
@@ -39,7 +42,13 @@ export default function Assignment() {
   useEffect(() => {
     if (!assignment) return;
     GetTopicsByAssignment(assignment.id)
-      .then((_topics) => setTopics(_topics))
+      .then((_topics) => {
+        const topicsWithLink = _topics.map((t) => ({
+          ...t,
+          link: `/post?id=${t.id}`,
+        }));
+        setTopics(() => topicsWithLink);
+      })
       .catch((err) => console.error(err));
   }, [assignment]);
 

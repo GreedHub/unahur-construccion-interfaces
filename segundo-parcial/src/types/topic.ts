@@ -1,4 +1,4 @@
-import Favoriteable, { Pineable } from "./favorite";
+import Favoriteable, { Linkeable, Pineable } from "./favorite";
 
 export const TopicTypes = {
   HELP: "HELP",
@@ -18,5 +18,7 @@ type Topic = Favoriteable &
     likesCount: number;
     creationDateTime: Date | string;
   };
+
+export type TopicWithLink = Topic & Linkeable;
 
 export default Topic;

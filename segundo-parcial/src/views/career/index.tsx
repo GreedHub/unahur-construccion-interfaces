@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 
 import CareerType from "../../types/career";
-import Assignment from "../../types/assignment";
+import Assignment, { AssignmentWithLink } from "../../types/assignment";
 
 import Search from "../../components/search";
 
@@ -13,13 +13,13 @@ import "./styles.scss";
 
 export default function CareerView() {
   const [career, setCareer] = useState<CareerType>();
-  const [assignments, setAssignments] = useState<Assignment[]>([]);
+  const [assignments, setAssignments] = useState<AssignmentWithLink[]>([]);
   const [searchParams] = useSearchParams();
 
   const filterBy = (
-    elements: Assignment[],
+    elements: AssignmentWithLink[],
     filterText: string
-  ): Assignment[] => {
+  ): AssignmentWithLink[] => {
     console.log({ elements, filterText });
     return elements.filter((t) =>
       t.name.toLocaleLowerCase().includes(filterText.toLocaleLowerCase())
@@ -42,7 +42,13 @@ export default function CareerView() {
   useEffect(() => {
     if (!career) return;
     GetAssignmentsByCareerId(career.id)
-      .then((_assignments) => setAssignments(_assignments))
+      .then((_assignments) => {
+        const assignmentsWithLink = _assignments.map((a) => ({
+          ...a,
+          link: `/assignment?id=${a.id}`,
+        }));
+        setAssignments(() => assignmentsWithLink);
+      })
       .catch((err) => console.error(err));
   }, [career]);
 

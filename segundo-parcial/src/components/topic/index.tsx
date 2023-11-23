@@ -1,4 +1,4 @@
-import { Pineable } from "../../types/favorite";
+import { Linkeable, Pineable } from "../../types/favorite";
 import TopicType from "../../types/topic";
 import TopicCounters from "./counters";
 import TopicFavorite from "./favorite";
@@ -6,7 +6,8 @@ import TopicInfo from "./info";
 import "./styles.scss";
 import TopicTitle from "./title";
 
-export type TopicProps = Pineable &
+export type TopicProps = Linkeable &
+  Pineable &
   Partial<TopicType> & {
     name: string;
   };
@@ -21,6 +22,7 @@ export default function Topic(props: TopicProps) {
     creationDateTime,
     isPinned,
     isFavorite,
+    link,
   } = props;
 
   const hasInfo = (ownerId && creationDateTime) || false;
@@ -39,7 +41,9 @@ export default function Topic(props: TopicProps) {
           isPinned={isPinned}
         />
       )}
-      <TopicTitle title={name} type={type} />
+
+      <TopicTitle title={name} type={type} link={link} />
+
       <TopicCounters commentsCount={commentsCount} likesCount={likesCount} />
       <TopicFavorite isFavorite={isFavorite} />
     </div>
