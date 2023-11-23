@@ -6,21 +6,93 @@ const ASSIGNMENTS: Assignment[] = [
   {
     id: "mate1",
     name: "Matemática 1",
-    careers: [
-      "tec-laboratory",
-      "tec-ambiental-science",
-      "lic-food-technology",
-      "tec-programming",
-      "tec-industrial-maintenance",
-      "ing-electric",
-      "prof-physical-education",
-      "lic-education",
-      "prof-english",
-      "univ-nursing",
-      "lic-kinesiology-and-physiatry",
-      "lic-obstetrics",
-    ],
-    isFavorite: true,
+    careers: ["tec-laboratory", "tec-ambiental-science", "lic-food-technology",
+              "tec-programming", "tec-industrial-maintenance", "ing-electric", 
+              "prof-physical-education", "lic-education", "prof-english", 
+              "univ-nursing", "lic-kinesiology-and-physiatry", "lic-obstetrics"],
+  },
+  {
+    id: "bio-gral",
+    name: "Obstetricia II",
+    careers: ["lic-obstetrics"],
+  },
+  {
+    id: "epidemiologia",
+    name: "Epidemiología",
+    careers: ["lic-kinesiology-and-physiatry"],
+  },
+  {
+    id: "enf-en-salud-mental",
+    name: "Enfermería en Salud Mental ",
+    careers: ["univ-nursing"],
+  },
+  {
+    id: "obstr2",
+    name: "Biología General",
+    careers: ["tec-laboratory", "lic-food-technology"],
+  },
+  {
+    id: "filosof-en-educ",
+    name: "Filosofía de la educación",
+    careers: ["lic-education"],
+  },
+  {
+    id: "ed-fis-en-ninez",
+    name: "Educación física en la niñez",
+    careers: ["prof-physical-education"],
+  },
+  {
+    id: "leng-inglesa1",
+    name: "Lengua Inglesa I",
+    careers: ["prof-english"],
+  },
+  {
+    id: "intro-energ-elec",
+    name: "Introducción a la Energía Eléctrica",
+    careers: ["ing-electric"],
+  },
+  {
+    id: "mat-y-elem-de-maq",
+    name: "Materiales y elementos de máquinas",
+    careers: ["tec-industrial-maintenance"],
+  },
+  {
+    id: "fisica",
+    name: "Física",
+    careers: ["tec-laboratory", "tec-ambiental-science", "lic-food-technology"],
+  },
+  {
+    id: "ingles1",
+    name: "Inglés 1",
+    careers: ["tec-laboratory", "tec-ambiental-science", "lic-food-technology",
+              "tec-programming", "tec-industrial-maintenance", "ing-electric", 
+              "prof-physical-education", "lic-education", "prof-english", 
+              "univ-nursing", "lic-kinesiology-and-physiatry", "lic-obstetrics"],
+  },
+  {
+    id: "CIU",
+    name: "Construcción de Interfaces de Usuario",
+    careers: ["tec-programming"],
+  },
+  {
+    id: "BD",
+    name: "Bases de Datos",
+    careers: ["tec-programming"],
+  },
+  {
+    id: "EP",
+    name: "Estrategias de persistencia",
+    careers: ["tec-programming"],
+  },
+  {
+    id: "intro-log-y-problem-comp",
+    name: "Introducción a lógica y problemas computacionales",
+    careers: ["tec-programming"],
+  },
+  {
+    id: "taller-marcado",
+    name: "Taller de lenguajes de marcado y tecnologías web",
+    careers: ["tec-programming"],
   },
 ];
 
