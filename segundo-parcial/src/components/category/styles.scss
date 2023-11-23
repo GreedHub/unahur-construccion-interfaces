@@ -2,7 +2,7 @@
 
 .category {
   display: flex;
-  height: 65px;
+  min-height: 65px;
   border-radius: $radius;
   background-color: color("background-card");
   align-items: stretch;
@@ -51,7 +51,7 @@
 
   &__title {
     align-self: center;
-    padding-left: $padding;
+    padding: $padding;
 
     h3 {
       font-weight: 400;
