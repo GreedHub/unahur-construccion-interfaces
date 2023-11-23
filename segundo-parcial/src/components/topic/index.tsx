@@ -40,9 +40,7 @@ export default function Topic(props: TopicProps) {
         />
       )}
       <TopicTitle title={name} type={type} />
-      {hasCounters && (
-        <TopicCounters commentsCount={commentsCount} likesCount={likesCount} />
-      )}
+      <TopicCounters commentsCount={commentsCount} likesCount={likesCount} />
       <TopicFavorite isFavorite={isFavorite} />
     </div>
   );
