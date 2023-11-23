@@ -1,3 +1,4 @@
+import { Search } from "@mui/icons-material";
 import { FormEvent } from "react";
 
 type SearchBarProps<T> = {
@@ -20,7 +21,12 @@ export default function SearchBar<T>(props: SearchBarProps<T>) {
 
   return (
     <form onSubmit={onFilterChange} className="search__bar">
-      <input type="text" name="filter" />
+      <div className="search__input">
+        <input type="text" name="filter" placeholder="Buscar" />
+        <button type="submit">
+          <Search />
+        </button>
+      </div>
     </form>
   );
 }

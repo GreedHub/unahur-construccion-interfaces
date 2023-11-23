@@ -45,7 +45,7 @@ export default function Assignment() {
 
   return (
     <article className="assignment">
-      <h1>{assignment?.name}</h1>
+      <h1 className="assignment__title">{assignment?.name}</h1>
       <Search elements={topics} filterBy={filterBy} />
     </article>
   );

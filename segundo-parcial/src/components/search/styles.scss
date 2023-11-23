@@ -11,4 +11,40 @@
     flex-direction: column;
     gap: $padding;
   }
+
+  &__input {
+    display: flex;
+    align-items: stretch;
+    width: 100%;
+    background-color: color("background-card");
+    border-radius: $radius;
+    height: 2.5em;
+    border: solid 2px color("separator");
+
+    input[type="text"] {
+      color: color("text-primary");
+      width: 100%;
+      border: none;
+      border-radius: $radius 0 0 $radius;
+      font-size: 1em;
+      padding-left: $padding;
+    }
+
+    input:focus,
+    input:focus-visible {
+      outline: none;
+    }
+
+    button {
+      background-color: transparent;
+      width: 60px;
+      border: none;
+      border-radius: 0 $radius $radius 0;
+      color: color("text-secondary");
+
+      :hover {
+        cursor: pointer;
+      }
+    }
+  }
 }

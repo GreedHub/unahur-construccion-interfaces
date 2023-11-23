@@ -47,9 +47,9 @@ export default function CareerView() {
   }, [career]);
 
   return (
-    <div className="assignment">
-      <h1>{career?.name}</h1>
+    <article className="career">
+      <h1 className="career__title">{career?.name}</h1>
       <Search elements={assignments} filterBy={filterBy} />
-    </div>
+    </article>
   );
 }
