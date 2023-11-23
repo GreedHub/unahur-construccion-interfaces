@@ -74,6 +74,14 @@ export async function GetCareers(): Promise<Career[]> {
   });
 }
 
+export async function GetFavoriteCareers(): Promise<Career[]> {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(CAREERS.filter((c) => c.isFavorite));
+    }, TIMEOUT);
+  });
+}
+
 export async function GetCareerById(careerId: string): Promise<Career> {
   return new Promise((resolve, reject) => {
     setTimeout(() => {

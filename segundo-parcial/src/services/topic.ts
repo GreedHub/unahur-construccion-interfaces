@@ -37,6 +37,14 @@ export async function GetTopics(): Promise<Topic[]> {
   });
 }
 
+export async function GetFavoriteTopics(): Promise<Topic[]> {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(TOPICS.filter((t) => t.isFavorite));
+    }, TIMEOUT);
+  });
+}
+
 export async function GetTopicsByAssignment(
   assignmentId: string
 ): Promise<Topic[]> {

@@ -1,6 +1,6 @@
-import { Linkeable } from "./favorite";
+import Favoriteable, { Linkeable } from "./favorite";
 
-type Assignment = {
+type Assignment = Favoriteable & {
   id: string;
   name: string;
   careers: string[];

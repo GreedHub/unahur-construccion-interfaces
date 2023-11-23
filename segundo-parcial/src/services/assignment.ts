@@ -20,6 +20,7 @@ const ASSIGNMENTS: Assignment[] = [
       "lic-kinesiology-and-physiatry",
       "lic-obstetrics",
     ],
+    isFavorite: true,
   },
 ];
 
@@ -27,6 +28,14 @@ export async function GetAssignments(): Promise<Assignment[]> {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(ASSIGNMENTS);
+    }, TIMEOUT);
+  });
+}
+
+export async function GetFavoriteAssignments(): Promise<Assignment[]> {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(ASSIGNMENTS.filter((a) => a.isFavorite));
     }, TIMEOUT);
   });
 }

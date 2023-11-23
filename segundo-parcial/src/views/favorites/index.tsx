@@ -5,14 +5,14 @@ import { TopicWithLink } from "../../types/topic";
 
 import Search from "../../components/search";
 
-import { GetAssignments } from "../../services/assignment";
+import { GetFavoriteAssignments } from "../../services/assignment";
 
 import "./styles.scss";
-import { GetTopics } from "../../services/topic";
+import { GetFavoriteTopics } from "../../services/topic";
 
 type AssignmentOrTopicWithLink = AssignmentWithLink | TopicWithLink;
 
-export default function SearchView() {
+export default function FavoriteView() {
   const [elements, setElements] = useState<AssignmentOrTopicWithLink[]>([]);
 
   const filterBy = (
@@ -25,7 +25,7 @@ export default function SearchView() {
   };
 
   const loadElements = async () => {
-    const asignments = await GetAssignments()
+    const asignments = await GetFavoriteAssignments()
       .then((_assignments) => {
         const assignmentsWithLink = _assignments.map((a) => ({
           ...a,
@@ -37,7 +37,7 @@ export default function SearchView() {
         throw new Error(`Error, cannot render search. Reason: ${err}`);
       });
 
-    const topics = await GetTopics()
+    const topics = await GetFavoriteTopics()
       .then((_topics) => {
         const topicsWithLink = _topics.map((a) => ({
           ...a,

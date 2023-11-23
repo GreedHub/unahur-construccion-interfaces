@@ -16,6 +16,7 @@ import Assignment from "./views/assignment";
 import CareerView from "./views/career";
 import InstituteView from "./views/institutte";
 import SearchView from "./views/search";
+import FavoriteView from "./views/favorites";
 
 function App() {
   const [user, setUser] = useState<User>();
@@ -46,7 +47,7 @@ function App() {
             <Route path="career" element={<CareerView />} />
             <Route path="institute" element={<InstituteView />} />
             <Route path="search" element={<SearchView />} />
-
+            <Route path="favorites" element={<FavoriteView />} />{" "}
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
