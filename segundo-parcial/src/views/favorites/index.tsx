@@ -58,7 +58,7 @@ export default function FavoriteView() {
 
   return (
     <article className="search">
-      <h1 className="search__title">Buscar:</h1>
+      <h1 className="search__title">Favoritos:</h1>
       <Search elements={elements} filterBy={filterBy} />
     </article>
   );
