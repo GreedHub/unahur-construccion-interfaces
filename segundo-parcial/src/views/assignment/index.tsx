@@ -4,7 +4,7 @@ import { useSearchParams } from "react-router-dom";
 import { GetAssignmentById } from "../../services/assignment";
 import { GetTopicsByAssignment } from "../../services/topic";
 
-import Topic, { TopicWithLink } from "../../types/topic";
+import { TopicWithLink } from "../../types/topic";
 import AssignmentType from "../../types/assignment";
 
 import Search from "../../components/search";
