@@ -12,6 +12,7 @@ import { useEffect, useState } from "react";
 import { GetUserInfoById } from "./services/user";
 import User from "./types/user";
 import UserContext from "./context/user";
+import Assignment from "./views/assignment";
 
 function App() {
   const [user, setUser] = useState<User>();
@@ -38,6 +39,7 @@ function App() {
             <Route path="post" element={<ForumPost />} />
             <Route path="profile" element={<Profile />} />
             <Route path="error" element={<SomethingWentWrong />} />
+            <Route path="assignment" element={<Assignment />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>

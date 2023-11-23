@@ -24,6 +24,12 @@ main {
   max-width: 1500px;
 }
 
+main > article {
+  padding: $padding $padding 80px $padding;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
 .desktop {
   display: none;
 }
@@ -60,5 +66,10 @@ main {
   .mobile,
   nav.mobile {
     display: none;
+  }
+
+  main > article {
+    padding: $padding;
+    box-sizing: border-box;
   }
 }

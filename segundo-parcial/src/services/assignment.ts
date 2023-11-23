@@ -17,3 +17,19 @@ export async function GetAssignments(): Promise<Assignment[]> {
     }, TIMEOUT);
   });
 }
+
+export async function GetAssignmentById(
+  assignmentId: string
+): Promise<Assignment> {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const assignment = ASSIGNMENTS.find(
+        (assignment) => assignment.id === assignmentId
+      );
+      if (!assignment)
+        return reject(`No assignment with id ${assignmentId} found`);
+
+      resolve(assignment);
+    }, TIMEOUT);
+  });
+}
