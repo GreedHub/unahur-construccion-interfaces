@@ -9,6 +9,7 @@ import { GetAssignments } from "../../services/assignment";
 
 import "./styles.scss";
 import { GetTopics } from "../../services/topic";
+import Back from "../../components/back";
 
 type AssignmentOrTopicWithLink = AssignmentWithLink | TopicWithLink;
 
@@ -58,7 +59,10 @@ export default function SearchView() {
 
   return (
     <article className="search">
-      <h1 className="search__title">Buscar:</h1>
+      <h1 className="search__title">
+        <Back />
+        Buscar:
+      </h1>
       <Search elements={elements} filterBy={filterBy} />
     </article>
   );
