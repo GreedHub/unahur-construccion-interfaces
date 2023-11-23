@@ -8,4 +8,8 @@
   max-height: 100vh;
   max-height: 100dvh;
   box-sizing: border-box;
+
+  .back-btn {
+    align-self: flex-start;
+  }
 }

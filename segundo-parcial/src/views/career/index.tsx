@@ -10,6 +10,7 @@ import { GetCareerById } from "../../services/carrer";
 import { GetAssignmentsByCareerId } from "../../services/assignment";
 
 import "./styles.scss";
+import Back from "../../components/back";
 
 export default function CareerView() {
   const [career, setCareer] = useState<CareerType>();
@@ -53,7 +54,10 @@ export default function CareerView() {
 
   return (
     <article className="career">
-      <h1 className="career__title">{career?.name}</h1>
+      <h1 className="career__title">
+        <Back />
+        {career?.name}
+      </h1>
       <Search elements={assignments} filterBy={filterBy} />
     </article>
   );

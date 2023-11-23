@@ -10,6 +10,7 @@ import { GetCareersByInstituteId } from "../../services/carrer";
 import Category from "../../components/category";
 
 import "./styles.scss";
+import Back from "../../components/back";
 
 export default function InstituteView() {
   const [institute, setInstitute] = useState<InstituteType>();
@@ -46,7 +47,10 @@ export default function InstituteView() {
 
   return (
     <article className="institute">
-      <h1 className="institute__title">{institute?.name}</h1>
+      <h1 className="institute__title">
+        <Back />
+        {institute?.name}
+      </h1>
       <section className="institute__careers">
         {careers.map((c, id) => (
           <Category

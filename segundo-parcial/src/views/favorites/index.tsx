@@ -9,6 +9,7 @@ import { GetFavoriteAssignments } from "../../services/assignment";
 
 import "./styles.scss";
 import { GetFavoriteTopics } from "../../services/topic";
+import Back from "../../components/back";
 
 type AssignmentOrTopicWithLink = AssignmentWithLink | TopicWithLink;
 
@@ -58,7 +59,10 @@ export default function FavoriteView() {
 
   return (
     <article className="search">
-      <h1 className="search__title">Favoritos:</h1>
+      <h1 className="search__title">
+        <Back />
+        Favoritos:
+      </h1>
       <Search elements={elements} filterBy={filterBy} />
     </article>
   );

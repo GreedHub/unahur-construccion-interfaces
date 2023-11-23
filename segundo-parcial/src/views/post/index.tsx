@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import ForumMessage from "../../components/message";
 import { GetTopicById } from "../../services/topic";
 import { useSearchParams } from "react-router-dom";
+import Back from "../../components/back";
 
 export default function ForumPost() {
   const [topic, setTopic] = useState<Topic>();
@@ -33,7 +34,8 @@ export default function ForumPost() {
   }, [topic]);
 
   return (
-    <div className="forum-post">
+    <article className="forum-post">
+      <Back />
       {messages.map((message, id) => (
         <ForumMessage
           topic={id === 0 ? topic : undefined}
@@ -41,6 +43,6 @@ export default function ForumPost() {
           key={id}
         />
       ))}
-    </div>
+    </article>
   );
 }

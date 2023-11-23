@@ -10,6 +10,7 @@ import AssignmentType from "../../types/assignment";
 import Search from "../../components/search";
 
 import "./styles.scss";
+import Back from "../../components/back";
 
 export default function Assignment() {
   const [assignment, setAssignment] = useState<AssignmentType>();
@@ -53,7 +54,10 @@ export default function Assignment() {
 
   return (
     <article className="assignment">
-      <h1 className="assignment__title">{assignment?.name}</h1>
+      <h1 className="assignment__title">
+        <Back />
+        {assignment?.name}
+      </h1>
       <Search elements={topics} filterBy={filterBy} />
     </article>
   );

@@ -14,7 +14,7 @@ import User from "./types/user";
 import UserContext from "./context/user";
 import Assignment from "./views/assignment";
 import CareerView from "./views/career";
-import InstituteView from "./views/institutte";
+import InstituteView from "./views/institute";
 import SearchView from "./views/search";
 import FavoriteView from "./views/favorites";
 

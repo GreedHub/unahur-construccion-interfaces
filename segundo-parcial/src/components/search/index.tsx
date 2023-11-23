@@ -17,7 +17,6 @@ export default function Search<T extends TopicProps>(
   const [filteredElements, setFilteredElements] = useState<T[]>(elements);
 
   useEffect(() => {
-    console.log({ elements });
     setFilteredElements(() => elements);
   }, [elements]);
 

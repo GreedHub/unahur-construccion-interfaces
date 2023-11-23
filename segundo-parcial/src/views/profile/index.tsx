@@ -5,6 +5,7 @@ import UserContext from "../../context/user";
 
 import "./styles.scss";
 import { AccountCircle } from "@mui/icons-material";
+import Back from "../../components/back";
 
 export default function Profile() {
   const user = useContext(UserContext).user;
@@ -23,6 +24,8 @@ export default function Profile() {
 
   return (
     <article className="profile">
+      <Back />
+
       <section className="profile__identification">
         {picture && <img src={picture} alt="user_picture" />}
         {!picture && <AccountCircle />}
