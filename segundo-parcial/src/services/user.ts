@@ -6,6 +6,8 @@ const USERS: User[] = [
   {
     id: "bsmith43",
     username: "bsmith43",
+    name: "Beth",
+    lastName: "Smith",
     email: "bsmith43@gmail.com",
     picture:
       "https://toppng.com/uploads/preview/circled-user-icon-user-pro-icon-11553397069rpnu1bqqup.png",
@@ -15,6 +17,8 @@ const USERS: User[] = [
   {
     id: "rsanchez53",
     username: "rsanchez53",
+    name: "Rick",
+    lastName: "Sanchez",
     email: "rsanchez53@gmail.com",
     picture:
       "https://toppng.com/uploads/preview/circled-user-icon-user-pro-icon-11553397069rpnu1bqqup.png",
@@ -31,7 +35,9 @@ export async function GetUsers(): Promise<string[]> {
   });
 }
 
-export async function GetUserInfo(userId: string): Promise<User | undefined> {
+export async function GetUserInfoById(
+  userId: string
+): Promise<User | undefined> {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(USERS.find((user) => user.id === userId));

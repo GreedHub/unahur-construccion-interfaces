@@ -45,7 +45,7 @@ export async function GetTopicById(
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       const topic = TOPICS.find((topic) => topic.id === topicId);
-      if (!topic) reject(`Topic with id ${topicId} not found`);
+      if (!topic) return reject(`Topic with id ${topicId} not found`);
 
       resolve(topic);
     }, TIMEOUT);

@@ -26,6 +26,12 @@ export function ParsedTimeSince(date: Date | string): string {
   return "new";
 }
 
+export function DateToCalendarFormat(date: Date | string) {
+  if (typeof date === "string") date = new Date(date);
+  return `${date.getDay()}/${date.getMonth()}/${date.getFullYear()}`;
+}
+
 export default {
   ParsedTimeSince,
+  DateToCalendarFormat,
 };

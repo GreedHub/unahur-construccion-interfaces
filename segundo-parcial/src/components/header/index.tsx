@@ -12,20 +12,22 @@ export default function Header(props: MobileNavProps) {
 
   return (
     <header className="desktop">
-      <Link to="/">
-        <Home /> Foro UNAHUR
-      </Link>
       <nav>
-        <Link to="/search">
-          <Search />
+        <Link to="/" className="home-btn">
+          <Home className="header-icon" /> Foro UNAHUR
         </Link>
-        <Link to="/favorites">
-          <Star />
-        </Link>
-        <Link to="/profile">
-          {user && <img src={user.picture} alt="user_picture" />}
-          {!user && <AccountCircle />}
-        </Link>
+        <span>
+          <Link to="/search">
+            <Search className="header-icon" />
+          </Link>
+          <Link to="/favorites">
+            <Star className="header-icon" />
+          </Link>
+          <Link to="/profile">
+            {user && <img src={user.picture} alt="user_picture" />}
+            {!user && <AccountCircle className="header-icon" />}
+          </Link>
+        </span>
       </nav>
     </header>
   );

@@ -14,6 +14,14 @@ body {
   height: 100dvh;
   box-sizing: border-box;
   background-color: color("background");
+  overflow-x: hidden;
+}
+
+main {
+  box-sizing: border-box;
+  margin: 0 auto 60px auto;
+  width: 100%;
+  max-width: 1500px;
 }
 
 .desktop {
@@ -42,8 +50,12 @@ body {
 }
 
 @media screen and (min-width: 800px) {
+  main {
+    margin: 60px auto 0 auto;
+  }
+
   .desktop {
-    display: initial;
+    display: flex;
   }
   .mobile,
   nav.mobile {

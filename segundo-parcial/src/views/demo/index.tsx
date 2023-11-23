@@ -8,7 +8,7 @@ import { GetTopicsByAssignment } from "../../services/topic";
 import Topic from "../../components/topic";
 import TopicType from "../../types/topic";
 import MobileNav from "../../components/nav-mobile";
-import { GetUserInfo } from "../../services/user";
+import { GetUserInfoById } from "../../services/user";
 import User from "../../types/user";
 import ForumPost from "../../views/post";
 
@@ -32,7 +32,7 @@ function Demo() {
       .then((topics) => setTopics(topics))
       .catch((err) => console.error(err));
 
-    GetUserInfo("ojqweqwoiweoqiwei")
+    GetUserInfoById("ojqweqwoiweoqiwei")
       .then((user) => {
         if (!user) return;
         setUser(user);

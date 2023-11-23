@@ -6,7 +6,9 @@ export default function Template() {
   return (
     <>
       <Header />
-      <Outlet />
+      <main>
+        <Outlet />
+      </main>
       <MobileNav />
     </>
   );

@@ -3,7 +3,7 @@ import { Pineable } from "../../types/favorite";
 import "./styles.scss";
 import { ParsedTimeSince } from "../../helpers/date";
 import User from "../../types/user";
-import { GetUserInfo } from "../../services/user";
+import { GetUserInfoById } from "../../services/user";
 import { PushPin } from "@mui/icons-material";
 
 type TopicInfoProps = Pineable & {
@@ -22,7 +22,7 @@ export default function TopicInfo(props: TopicInfoProps) {
   );
 
   useEffect(() => {
-    GetUserInfo(ownerId)
+    GetUserInfoById(ownerId)
       .then((_user: User | undefined) => {
         if (!_user) return;
         SetUser(_user);

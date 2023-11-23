@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import "./styles.scss";
 import { ParsedTimeSince } from "../../helpers/date";
 import User from "../../types/user";
-import { GetUserInfo } from "../../services/user";
+import { GetUserInfoById } from "../../services/user";
 
 type ForumMessageInfoProps = {
   ownerId: string;
@@ -20,7 +20,7 @@ export default function ForumMessageInfo(props: ForumMessageInfoProps) {
   );
 
   useEffect(() => {
-    GetUserInfo(ownerId)
+    GetUserInfoById(ownerId)
       .then((_user: User | undefined) => {
         if (!_user) return;
         SetUser(_user);

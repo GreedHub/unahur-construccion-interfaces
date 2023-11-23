@@ -26,7 +26,7 @@ export default function ForumMessageContent(props: ForumMessageContentProps) {
   useEffect(() => {
     window.addEventListener("resize", setMaxWidth);
     setMaxWidth();
-  });
+  }, []);
 
   return (
     <div
