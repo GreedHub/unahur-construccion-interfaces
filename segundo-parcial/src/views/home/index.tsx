@@ -3,7 +3,7 @@ import Category from "../../components/category";
 
 import "./styles.scss";
 import { Institute } from "../../types/institute";
-import Career from "../../types/carrer";
+import Career from "../../types/career";
 import { GetCareers } from "../../services/carrer";
 import { GetInstitutes } from "../../services/institute";
 

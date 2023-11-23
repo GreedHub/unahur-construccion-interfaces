@@ -5,13 +5,15 @@ import { ParseTopicType } from "../../helpers/topic";
 
 type TopicTitleProps = {
   title: string;
-  type: TopicKeys;
+  type?: TopicKeys;
 };
 
 export default function TopicTitle(props: TopicTitleProps) {
   const { title, type } = props;
 
-  const parsedType = useMemo<string>(() => ParseTopicType(type), [type]);
+  const parsedType = type
+    ? useMemo<string>(() => ParseTopicType(type), [type])
+    : ``;
 
   return (
     <h2 className="topic__title">

@@ -1,24 +1,26 @@
 import { useEffect, useState } from "react";
 import SearchBar from "./search-bar";
-import Topic from "../../components/topic";
-import TopicType from "../../types/topic";
+import Topic, { TopicProps } from "../topic";
+
+import "./styles.scss";
 
 type SearchViewProps<T> = {
   elements: T[];
   filterBy: (elements: T[], param: string) => T[];
 };
 
-export default function SearchView(props: SearchViewProps<TopicType>) {
+export default function SearchView<T extends TopicProps>(
+  props: SearchViewProps<T>
+) {
   const { elements, filterBy } = props;
 
-  const [filteredElements, setFilteredElements] =
-    useState<TopicType[]>(elements);
+  const [filteredElements, setFilteredElements] = useState<T[]>(elements);
 
   useEffect(() => {
     setFilteredElements(() => elements);
   }, [elements]);
 
-  const onCallback = (filtered: TopicType[]) => {
+  const onCallback = (filtered: T[]) => {
     setFilteredElements(() => filtered);
   };
 
@@ -31,7 +33,7 @@ export default function SearchView(props: SearchViewProps<TopicType>) {
       />
       <section className="search__results">
         {filteredElements.map((element, id) => (
-          <Topic topic={element} key={id} />
+          <Topic {...element} key={id} />
         ))}
       </section>
     </article>

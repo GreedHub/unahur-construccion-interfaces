@@ -1,0 +1,14 @@
+@import "../../globals.scss";
+
+.search {
+  display: flex;
+  flex-direction: column;
+  gap: $padding;
+  box-sizing: border-box;
+
+  &__results {
+    display: flex;
+    flex-direction: column;
+    gap: $padding;
+  }
+}

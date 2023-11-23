@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Category from "../../components/category";
 import { Institute } from "../../types/institute";
 import { GetInstitutes } from "../../services/institute";
-import Career from "../../types/carrer";
+import Career from "../../types/career";
 import { GetCareers } from "../../services/carrer";
 import { GetTopicsByAssignment } from "../../services/topic";
 import Topic from "../../components/topic";

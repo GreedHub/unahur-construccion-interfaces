@@ -13,6 +13,7 @@ import { GetUserInfoById } from "./services/user";
 import User from "./types/user";
 import UserContext from "./context/user";
 import Assignment from "./views/assignment";
+import CareerView from "./views/career";
 
 function App() {
   const [user, setUser] = useState<User>();
@@ -40,6 +41,7 @@ function App() {
             <Route path="profile" element={<Profile />} />
             <Route path="error" element={<SomethingWentWrong />} />
             <Route path="assignment" element={<Assignment />} />
+            <Route path="career" element={<CareerView />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>

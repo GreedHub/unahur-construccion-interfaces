@@ -1,4 +1,4 @@
-import Career from "../types/carrer";
+import Career from "../types/career";
 import Institutes from "../types/institute";
 
 const TIMEOUT = 100;
@@ -25,6 +25,18 @@ export async function GetCareers(): Promise<Career[]> {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(CAREERS);
+    }, TIMEOUT);
+  });
+}
+
+export async function GetCareerById(careerId: string): Promise<Career> {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const career = CAREERS.find((c) => c.id === careerId);
+
+      if (!career) return reject(`No career with id ${careerId} found`);
+
+      resolve(career);
     }, TIMEOUT);
   });
 }

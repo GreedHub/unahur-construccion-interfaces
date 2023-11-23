@@ -7,7 +7,7 @@ import { GetTopicsByAssignment } from "../../services/topic";
 import Topic from "../../types/topic";
 import AssignmentType from "../../types/assignment";
 
-import Search from "../search";
+import Search from "../../components/search";
 
 import "./styles.scss";
 
@@ -44,8 +44,9 @@ export default function Assignment() {
   }, [assignment]);
 
   return (
-    <div className="assignment">
+    <article className="assignment">
+      <h1>{assignment?.name}</h1>
       <Search elements={topics} filterBy={filterBy} />
-    </div>
+    </article>
   );
 }

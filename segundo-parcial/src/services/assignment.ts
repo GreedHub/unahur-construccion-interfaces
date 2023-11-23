@@ -18,6 +18,19 @@ export async function GetAssignments(): Promise<Assignment[]> {
   });
 }
 
+export async function GetAssignmentsByCareerId(
+  carrerId: string
+): Promise<Assignment[]> {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      const assignments = ASSIGNMENTS.filter((a) =>
+        a.careers.includes(carrerId)
+      );
+      resolve(assignments);
+    }, TIMEOUT);
+  });
+}
+
 export async function GetAssignmentById(
   assignmentId: string
 ): Promise<Assignment> {
